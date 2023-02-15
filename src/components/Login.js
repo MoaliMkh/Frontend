@@ -8,18 +8,21 @@ function Login() {
             fontSize:'50px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            paddingTop: 20,
+            paddingTop: 40,
             alignItems: 'center'
             };
   
   const transStyle = {
     // color: 'red',
-    backgroundColor:"#303030",
-    opacity: 1,
-    width: 'fit-content', 
+    backgroundColor:"#CBCBCB",
+    opacity: .9,
+    width: '25%', 
     marginLeft: 'auto',  
     marginRight: 'auto',  
     borderRadius: 10,
+    // eslint-disable-next-line no-restricted-globals
+    // backdropFilter: blur('8px'),
+    zIndex: 20,
     height: 500
   };
 
@@ -46,22 +49,15 @@ function Login() {
             </div>
           </form>
 
-          <div class="row">          
-            <div class="input-field col s12 m12 l12 login-text">
-                <input type="checkbox" id="remember-me" />
-                <label for="remember-me" style={{fontSize: 14}}>Remember me</label>
-            </div>
-          </div>
-
 
           <div class="row">
 
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          <button type="button" class="text-white bg-blue-700 items-center hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
               ورود
           </button>
 
             <div class="input-field col s6 m6 l6">
-                <p class="margin right-align medium-small text-lg"><a href="#">رمز عبور خود را فراموش کرده‌اید؟ | ثبت‌نام</a></p>
+                <p class="margin right-align medium-small text-lg text-sky-400"><a href="#">رمز عبور خود را فراموش کرده‌اید؟ | ثبت‌نام</a></p>
             </div>          
           </div>
 
