@@ -14,8 +14,8 @@ function Login() {
   
   const transStyle = {
     // color: 'red',
-    backgroundColor:"#CBCBCB",
-    opacity: .9,
+    backgroundColor:"#595B60",
+    opacity: 0.94,
     width: '25%', 
     marginLeft: 'auto',  
     marginRight: 'auto',  
@@ -52,12 +52,12 @@ function Login() {
 
           <div class="row">
 
-          <button type="button" class="text-white bg-blue-700 items-center hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mx-40 px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
               ورود
           </button>
 
             <div class="input-field col s6 m6 l6">
-                <p class="margin right-align medium-small text-lg text-sky-400"><a href="#">رمز عبور خود را فراموش کرده‌اید؟ | ثبت‌نام</a></p>
+                <p class="margin right-align medium-small text-lg text-center text-sky-400"><a href="#">رمز عبور خود را فراموش کرده‌اید؟ | ثبت‌نام</a></p>
             </div>          
           </div>
 
