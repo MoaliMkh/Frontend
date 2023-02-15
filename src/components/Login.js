@@ -22,7 +22,6 @@ function Login() {
     borderRadius: 10,
     // eslint-disable-next-line no-restricted-globals
     // backdropFilter: blur('8px'),
-    zIndex: 20,
     height: 500
   };
 
@@ -38,14 +37,14 @@ function Login() {
           <form class="row">
             <div class="input-field col s12">
               {/* <i class="material-icons prefix">lock_outline</i> */}
-              <input type="text" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="ایمیل" required></input>
+              <input type="text" id="email" class="bg-gray-50 border w-64 center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="ایمیل" required></input>
             </div>
           </form>
 
           <form class="row">
             <div class="input-field col s12">
               {/* <i class="material-icons prefix">lock_outline</i> */}
-              <input type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
+              <input type="password" id="password" class="bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
             </div>
           </form>
 
