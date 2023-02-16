@@ -1,9 +1,7 @@
-import './Login.css';
+import './Signup.css';
 import back_img from '../Background.png'
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 
-
-function Login() {
+function Signup() {
   const myStyle={
     backgroundImage:`url(${back_img})`,
             height:'100vh',
@@ -44,17 +42,24 @@ function Login() {
           </form>
 
           <form class="row">
-            <div style={{height: 6, width: 40}}><AiFillEye /></div>
-            <div class="input-field col s12">              
+            <div class="input-field col s12">
+              {/* <i class="material-icons prefix">lock_outline</i> */}
               <input type="password" id="password" class="text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
+            </div>
+          </form>
+
+          <form class="row">
+            <div class="input-field col s12">
+              {/* <i class="material-icons prefix">lock_outline</i> */}
+              <input type="password" id="password" class=" text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="تکرار رمز عبور" required></input>
             </div>
           </form>
 
 
           <div class="row">
 
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mx-40 px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-              ورود
+          <button type="button" class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mx-40 px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+              ثبت‌نام
           </button>
 
             <div class="input-field col s6 m6 l6">
@@ -70,4 +75,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
