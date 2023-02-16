@@ -50,6 +50,10 @@ function Signup() {
             <div class="input-field col s12">
               <input type="password" id="password" class="text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="رمز عبور" required></input>
             </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap'}}>  
+              <input type="checkbox" onclick="myFunction()"></input>
+              <p class="text-sm">Show Password</p>
+            </div>
           </form>
 
           <form class="row">

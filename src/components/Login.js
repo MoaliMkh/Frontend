@@ -1,11 +1,19 @@
 import './Login.css';
 import back_img from '../Background.png'
-import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
-import { IconContext } from "react-icons";
 
 
 
 function Login() {
+
+  const passwordVisibility = () => {
+    var x = document.getElementById("password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
   const myStyle={
     backgroundImage:`url(${back_img})`,
             height:'100vh',
@@ -52,12 +60,11 @@ function Login() {
 
           <form class="">
             <div class="input-field row">  
-              {/* <IconContext.Provider value={{ color: "#50B0C5", className: "global-class-name", size: '30px' }}>
-                <div>
-                  <AiFillEye />
-                </div>
-              </IconContext.Provider>             */}
               <input type="password" id="password" class="text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
+            </div>
+            <div style={{ display: 'flex', flexWrap: 'wrap'}}>  
+              <input type="checkbox" onClick={passwordVisibility}></input>
+              <p class="text-sm">Show Password</p>
             </div>
           </form>
 
