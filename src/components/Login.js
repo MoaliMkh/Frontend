@@ -1,6 +1,8 @@
 import './Login.css';
 import back_img from '../Background.png'
 import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { IconContext } from "react-icons";
+
 
 
 function Login() {
@@ -22,9 +24,14 @@ function Login() {
     marginLeft: 'auto',  
     marginRight: 'auto',  
     borderRadius: 10,
-    // eslint-disable-next-line no-restricted-globals
-    // backdropFilter: blur('8px'),
-    height: 500
+    height: 500,
+    marginTop: '5%'
+  };
+
+  const inputFieldStyle = {
+    width: '90%', 
+    paddingLeft: '15%',  
+    paddingRight: '15%', 
   };
 
 
@@ -33,19 +40,23 @@ function Login() {
       <div style={transStyle}>
         <p style={{color: 'white', textAlign: 'center'}}>ورود</p>
         <div class="col s12 z-depth-6 card-panel">
-        <form class="login-form">
+        <form class="login-form" style={inputFieldStyle}>
 
 
-          <form class="row">
+          <form class="row" >
             <div class="input-field col s12">
               {/* <i class="material-icons prefix">lock_outline</i> */}
               <input type="text" id="email" class="text-right bg-gray-50 border w-64 center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="ایمیل" required></input>
             </div>
           </form>
 
-          <form class="row">
-            <div style={{height: 6, width: 40}}><AiFillEye /></div>
-            <div class="input-field col s12">              
+          <form class="">
+            <div class="input-field row">  
+              {/* <IconContext.Provider value={{ color: "#50B0C5", className: "global-class-name", size: '30px' }}>
+                <div>
+                  <AiFillEye />
+                </div>
+              </IconContext.Provider>             */}
               <input type="password" id="password" class="text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
             </div>
           </form>
@@ -53,7 +64,7 @@ function Login() {
 
           <div class="row">
 
-          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm mx-40 px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+          <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" style={{marginLeft: '40%', marginRight: '40%'}}>
               ورود
           </button>
 
