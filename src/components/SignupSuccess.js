@@ -39,7 +39,7 @@ const SignupSuccess = () => {
     return (
         <div style={myStyle}>
         <div style={transStyle}>
-          <p style={{color: 'white', textAlign: 'center', marginBottom: 20}}>فعال‌سازی حساب</p>
+          <p style={{color: 'white', textAlign: 'center', marginBottom: 20}} class="w-full">فعال‌سازی حساب</p>
           {/* <div class="col s12 z-depth-6 card-panel"> */}
           <form class="login-form" style={inputFieldStyle}>
   
