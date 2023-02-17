@@ -1,11 +1,14 @@
 import './Login.css';
 import back_img from '../Background.png'
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 
 
 
 
 function Login() {
+
+  const [authorized, setAuthorized] = useState(false);
 
   const passwordVisibility = () => {
     var x = document.getElementById("password");
@@ -69,6 +72,8 @@ function Login() {
               <p class="text-sm">Show Password</p>
             </div>
           </form>
+
+          {authorized ? null: <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">ایمیل یا رمز عبور، نامعتبر است</p>}
 
 
           <div class="row">
