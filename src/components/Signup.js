@@ -1,8 +1,23 @@
 import './Signup.css';
 import back_img from '../Background.png'
 import {Link} from 'react-router-dom';
+import { useState } from 'react';
 
 function Signup() {
+
+  const [passwordEquality, setPasswordEquality] = useState(true);
+
+  const passwordEqualityChecker = () => {
+    var password1 = document.getElementById("password1");
+    var password2 = document.getElementById("password2");
+
+    if (password1 === password2) {
+      setPasswordEquality(true)
+    } else {
+      setPasswordEquality(false)
+    }
+  }
+
   const myStyle={
     backgroundImage:`url(${back_img})`,
             height:'100vh',
@@ -49,13 +64,13 @@ function Signup() {
 
           <form class="row">
             <div class="input-field col s12">
-              <input type="password" id="password" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="رمز عبور" required></input>
+              <input type="password" id="password1" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="رمز عبور" required></input>
             </div>
           </form>
 
           <form class="row">
             <div class="input-field col s12">
-              <input type="password" id="password" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="تکرار رمز عبور" required></input>
+              <input type="password" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="تکرار رمز عبور" required></input>
             </div>
           </form>
 
@@ -65,11 +80,13 @@ function Signup() {
               <p class="text-sm">Show Password</p>
           </div>
 
+          {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p>: null}
+
 
           <div class="row">
 
             <Link to='/signupsuccess'>
-            <button type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
+            <button onClick={passwordEqualityChecker} type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
                 ثبت‌نام
             </button>
             </Link>
