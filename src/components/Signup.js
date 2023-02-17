@@ -1,5 +1,6 @@
 import './Signup.css';
 import back_img from '../Background.png'
+import {Link} from 'react-router-dom';
 
 function Signup() {
   const myStyle={
@@ -34,7 +35,7 @@ function Signup() {
   return (
     <div style={myStyle}>
       <div style={transStyle}>
-        <p style={{color: 'white', textAlign: 'center'}}>ورود</p>
+        <p style={{color: 'white', textAlign: 'center', marginBottom: 20}}>ثبت‌نام</p>
         <div class="col s12 z-depth-6 card-panel">
         <form class="login-form" style={inputFieldStyle}>
 
@@ -50,10 +51,6 @@ function Signup() {
             <div class="input-field col s12">
               <input type="password" id="password" class="text-right bg-gray-50 border w-64 border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="رمز عبور" required></input>
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap'}}>  
-              <input type="checkbox" onclick="myFunction()"></input>
-              <p class="text-sm">Show Password</p>
-            </div>
           </form>
 
           <form class="row">
@@ -63,15 +60,24 @@ function Signup() {
           </form>
 
 
+          <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 10}}>  
+              <input type="checkbox" onclick="myFunction()"></input>
+              <p class="text-sm">Show Password</p>
+          </div>
+
+
           <div class="row">
 
-            <button type="button" class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" style={{marginLeft: '40%', marginRight: '40%'}}>
+            <button type="button" class="text-white w-64 bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
                 ثبت‌نام
             </button>
 
-            <div class="input-field col s6 m6 l6">
-                <p class="margin right-align medium-small text-lg text-center text-sky-400"><a href="#">رمز عبور خود را فراموش کرده‌اید؟ | ثبت‌نام</a></p>
-            </div>          
+            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+
+                <p class="text-center medium-small text-sm text-sky-400" style={{flex: '100%'}}>
+                  <Link to="/login">حساب کاربری دارید؟ ورود</Link>
+                </p>
+            </div>            
           </div>
 
         </form>
