@@ -68,9 +68,11 @@ function Signup() {
 
           <div class="row">
 
-            <button type="button" class="text-white w-64 bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
+            <Link to='/signupsuccess'>
+            <button type="button" class="text-white w-11/12 bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
                 ثبت‌نام
             </button>
+            </Link>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
 
