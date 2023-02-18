@@ -9,6 +9,21 @@ function Signup() {
 
   const [passwordEquality, setPasswordEquality] = useState(true);
 
+  const passwordVisibility = () => {
+    var x = document.getElementById("password1");
+    var y = document.getElementById("password2");
+
+    if (x.type === "password" && y.type === "password") {
+      x.type = "text";
+      y.type = "text";
+
+    } else {
+      x.type = "password";
+      y.type = "password";
+
+    }
+  }
+
   const passwordEqualityChecker = () => {
     var password1 = document.getElementById("password1");
     var password2 = document.getElementById("password2");
@@ -77,9 +92,9 @@ function Signup() {
           </form>
 
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 10}}>  
-              <input type="checkbox" onclick="myFunction()"></input>
-              <p class="text-sm">Show Password</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7, justifyContent: 'right'}}>  
+              <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
+              <input type="checkbox" onClick={passwordVisibility}></input>
           </div>
 
           {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p>: null}
@@ -109,10 +124,8 @@ function Signup() {
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-evenly', marginBottom: 20}}>
+            <img src={gmail} alt="pic2" style={{height: 35, marginBottom: 10}}></img>
 
-            <img src={github} alt="pic1" style={{height: 35}}></img>
-            <img src={gmail} alt="pic2" style={{height: 35}}></img>
- 
           </div> 
 
           

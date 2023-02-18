@@ -64,9 +64,9 @@ function Login() {
             <div class="input-field row">  
               <input type="password" id="password" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
             </div>
-            <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7}}>  
+            <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7, justifyContent: 'right'}}>  
+              <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
               <input type="checkbox" onClick={passwordVisibility}></input>
-              <p class="text-sm">Show Password</p>
             </div>
           </form>
 
