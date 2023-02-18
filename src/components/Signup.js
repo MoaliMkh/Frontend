@@ -110,9 +110,9 @@ function Signup() {
 
           <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-evenly', marginBottom: 20}}>
 
-            <img src={github} alt="pic1"></img>
-            <img src={gmail} alt="pic2"></img>
-
+            <img src={github} alt="pic1" style={{height: 35}}></img>
+            <img src={gmail} alt="pic2" style={{height: 35}}></img>
+ 
           </div> 
 
           

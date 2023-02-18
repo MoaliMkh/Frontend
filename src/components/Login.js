@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 
 
-
-
 function Login() {
 
-  const [authorized, setAuthorized] = useState(false);
+  const [authorized, setAuthorized] = useState(true);
 
   const passwordVisibility = () => {
     var x = document.getElementById("password");
@@ -30,7 +28,6 @@ function Login() {
             };
   
   const transStyle = {
-    // color: 'red',
     backgroundColor:"#595B60",
     opacity: 0.94,
     width: '25%', 
