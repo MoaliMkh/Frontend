@@ -2,12 +2,14 @@ import './Signup.css';
 import back_img from '../Background.png'
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
-import github from '../github.png';
 import gmail from '../gmail.png';
 
 function Signup() {
 
   const [passwordEquality, setPasswordEquality] = useState(true);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
 
   const passwordVisibility = () => {
     var x = document.getElementById("password1");
@@ -20,7 +22,6 @@ function Signup() {
     } else {
       x.type = "password";
       y.type = "password";
-
     }
   }
 
@@ -74,14 +75,15 @@ function Signup() {
 
           <form class="row">
             <div class="input-field col s12">
-              {/* <i class="material-icons prefix">lock_outline</i> */}
-              <input type="text" id="email" class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="ایمیل" required></input>
+              <input type="text" id="email" class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
+              placeholder="ایمیل" required onChange={(event) => {setUsername(event.target.value)}}></input>
             </div>
           </form>
 
           <form class="row">
             <div class="input-field col s12">
-              <input type="password" id="password1" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="رمز عبور" required></input>
+              <input type="password" id="password1" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
+              placeholder="رمز عبور" required onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
           </form>
 
@@ -127,9 +129,6 @@ function Signup() {
             <img src={gmail} alt="pic2" style={{height: 35, marginBottom: 10}}></img>
 
           </div> 
-
-          
-
         </form>
     </div>
 
