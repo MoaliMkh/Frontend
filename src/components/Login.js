@@ -2,11 +2,14 @@ import './Login.css';
 import back_img from '../Background.png'
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import req from '../api/req';
 
 
 function Login() {
 
   const [authorized, setAuthorized] = useState(true);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const passwordVisibility = () => {
     var x = document.getElementById("password");
@@ -15,6 +18,24 @@ function Login() {
     } else {
       x.type = "password";
     }
+  }
+
+  const onSubmit = async (e) => {
+    
+    const headers = {
+      "X-CSRFToken": "pHJLYIcMr7oOA7hXZOWQ69CXJWr04B9o",
+      "Authorization": ""
+        }
+    e.preventDefault()
+    const data = { username, password }
+    try {
+      const res = await req.post('/login', data, {headers})
+      console.log(res.data)
+    } catch (e) {
+      alert(e)
+      console.log(e)
+    }
+
   }
 
   const myStyle={
@@ -56,13 +77,15 @@ function Login() {
           <form class="row" >
             <div class="input-field col s12">
               {/* <i class="material-icons prefix">lock_outline</i> */}
-              <input type="text" id="email" class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" placeholder="ایمیل" required></input>
+              <input type="text" id="email" class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
+              placeholder="ایمیل" required value={username} onChange={(event) => {setUsername(event.target.value)}}></input>
             </div>
           </form>
 
           <form class="">
             <div class="input-field row">  
-              <input type="password" id="password" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="رمز عبور" required></input>
+              <input type="password" id="password" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+              placeholder="رمز عبور" required value={password} onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7, justifyContent: 'right'}}>  
               <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
@@ -75,7 +98,8 @@ function Login() {
 
           <div class="row">
 
-          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" >
+          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none"
+          onClick={onSubmit} >
               ورود
           </button>
 

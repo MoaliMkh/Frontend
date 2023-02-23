@@ -42,17 +42,23 @@ function Signup() {
   }
 
   const onSubmit = async (e) => {
+    
     const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:3000"
-    }
-    // e.preventDefault()
+      "X-CSRFToken": "pHJLYIcMr7oOA7hXZOWQ69CXJWr04B9o",
+        }
+    e.preventDefault()
     const data = { username, password }
-    try {
-      const res = await req.post('/register', data, {headers: headers, mode: "no-cors"})
-      console.log(res.data)
-    } catch (e) {
-      alert(e)
-      console.log(e)
+    if (passwordEquality){
+      try {
+        const res = await req.post('/register', data, {headers})
+        console.log(res.data)
+      } catch (e) {
+        alert(e)
+        console.log(e)
+      }
+    }
+    else{
+      alert("Correct Your Information!")
     }
   }
 
