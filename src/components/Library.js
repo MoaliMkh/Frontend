@@ -1,55 +1,10 @@
 import "./Library.css";
 import back_img from "../LibBackground.png";
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import gmail from "../gmail.png";
-import req from "../api/req";
+import card_img from "../card.jpg";
 
 function Library() {
-  const [passwordEquality, setPasswordEquality] = useState(true);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [secondPassword, setSecondPassword] = useState("");
-
-  const passwordVisibility = () => {
-    var x = document.getElementById("password1");
-    var y = document.getElementById("password2");
-
-    if (x.type === "password" && y.type === "password") {
-      x.type = "text";
-      y.type = "text";
-    } else {
-      x.type = "password";
-      y.type = "password";
-    }
-  };
-
-  const passwordEqualityChecker = () => {
-    // var password1 = document.getElementById("password1");
-    // var password2 = document.getElementById("password2");
-    if (password === secondPassword) {
-      setPasswordEquality(true);
-      console.log(passwordEquality);
-    } else {
-      setPasswordEquality(false);
-    }
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const data = { username, password };
-    if (passwordEquality) {
-      try {
-        const res = await req.post("/register/", data);
-        console.log(res.data);
-      } catch (e) {
-        alert(e);
-        console.log(e);
-      }
-    } else {
-      alert("Correct Your Information!");
-    }
-  };
+  const [search, setSearch] = useState("");
 
   const myStyle = {
     backgroundImage: `url(${back_img})`,
@@ -88,14 +43,59 @@ function Library() {
           کتابخانه
         </p>
 
-        <div class="col s12 z-depth-6 card-panel">
+        <div class="col s2 z-depth-6 card-panel">
           <div style={inputFieldStyle}>
             <div class="row">
-              <div class="input-field col s12"></div>
+              <form class="column">
+                <div>
+                  <input
+                    type="text"
+                    id="password1"
+                    class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+                    placeholder="جستجو"
+                    value={search}
+                    required
+                    onChange={(event) => {
+                      setSearch(event.target.value);
+                    }}
+                  ></input>
+                </div>
+              </form>
+
+              <div class="column">
+                <button class="bg-emerald-200 hover:bg-emerald-300 text-white px-8 py-1 rounded-full">
+                  اعمال
+                </button>
+              </div>
             </div>
 
             <div class="row">
-              <div class="input-field col s12"></div>
+              <div class="max-w-sm rounded overflow-hidden shadow-lg">
+                <img
+                  class="w-full"
+                  src={card_img}
+                  alt="Sunset in the mountains"
+                ></img>
+                <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
+                  <p class="text-gray-700 text-base">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Voluptatibus quia, nulla! Maiores et perferendis eaque,
+                    exercitationem praesentium nihil.
+                  </p>
+                </div>
+                <div class="px-6 pt-4 pb-2">
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #photography
+                  </span>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #travel
+                  </span>
+                  <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+                    #winter
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
