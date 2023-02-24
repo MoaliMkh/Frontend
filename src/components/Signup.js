@@ -42,15 +42,11 @@ function Signup() {
   }
 
   const onSubmit = async (e) => {
-    
-    const headers = {
-      "X-CSRFToken": "pHJLYIcMr7oOA7hXZOWQ69CXJWr04B9o",
-        }
     e.preventDefault()
     const data = { username, password }
     if (passwordEquality){
       try {
-        const res = await req.post('/register', data, {headers})
+        const res = await req.post('/register/', data)
         console.log(res.data)
       } catch (e) {
         alert(e)

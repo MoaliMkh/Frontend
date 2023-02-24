@@ -22,14 +22,10 @@ function Login() {
 
   const onSubmit = async (e) => {
     
-    const headers = {
-      "X-CSRFToken": "pHJLYIcMr7oOA7hXZOWQ69CXJWr04B9o",
-      "Authorization": ""
-        }
     e.preventDefault()
     const data = { username, password }
     try {
-      const res = await req.post('/login', data, {headers})
+      const res = await req.post('/login/', data)
       console.log(res.data)
     } catch (e) {
       alert(e)
@@ -120,7 +116,6 @@ function Login() {
 
         </form>
     </div>
-
     </div>
     </div>
   );
