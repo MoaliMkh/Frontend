@@ -5,6 +5,7 @@ import HomePage from './components/HomePage';
 import Layout from './components/Layout';
 import SignupSuccess from './components/SignupSuccess';
 import AboutUs from './components/AboutUs';
+import Library from './components/Library';
 
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -26,6 +27,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signupsuccess" element={<SignupSuccess />} />
         <Route path="aboutus" element={<AboutUs />} />
+        <Route path="library" element={<Library />} />
 
 
 
