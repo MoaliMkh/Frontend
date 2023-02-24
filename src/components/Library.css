@@ -6,7 +6,7 @@
 }
   
 .Background {
-      background-image: url("../Background.png");
+      background-image: url("../LibBackground.png");
       height:'100vh';
       background-size: 'cover';
       background-repeat: 'no-repeat';
@@ -15,4 +15,5 @@
 
 .column {
     width: 30%;
+    font-size: x-large;
 }

@@ -19,7 +19,7 @@ function Library() {
   const transStyle = {
     backgroundColor: "#595B60",
     opacity: 0.94,
-    width: "75%",
+    width: "60%",
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "5%",
@@ -45,13 +45,25 @@ function Library() {
 
         <div class="col s2 z-depth-6 card-panel">
           <div style={inputFieldStyle}>
-            <div class="row">
-              <form class="column">
-                <div>
+            <div class="grid gap-6 mb-6 md:grid-cols-3">
+              <span class="column">
+                <button class="bg-emerald-200 hover:bg-emerald-300 text-white px-8 py-1 rounded-full">
+                  اعمال
+                </button>
+              </span>
+
+              <span class="column">
+                <button class="bg-gray-300 hover:bg-gray-400 text-white px-8 py-1 rounded-full">
+                  فیلتر
+                </button>
+              </span>
+
+              <span class="column">
+                <form>
                   <input
                     type="text"
-                    id="password1"
-                    class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+                    id="search"
+                    class="text-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
                     placeholder="جستجو"
                     value={search}
                     required
@@ -59,14 +71,8 @@ function Library() {
                       setSearch(event.target.value);
                     }}
                   ></input>
-                </div>
-              </form>
-
-              <div class="column">
-                <button class="bg-emerald-200 hover:bg-emerald-300 text-white px-8 py-1 rounded-full">
-                  اعمال
-                </button>
-              </div>
+                </form>
+              </span>
             </div>
 
             <div class="row">
