@@ -51,6 +51,8 @@ function Signup() {
     if (passwordEquality){
       try {
         const res = await req.post('/register/', data)
+        const {token} = res.data || {};
+        localStorage.setItem("token", token);
         console.log(res.data)
         setUniqueness(true)
         navigate('/signupsuccess')

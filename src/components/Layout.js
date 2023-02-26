@@ -15,6 +15,7 @@ const Layout = () => {
     try {
       const res = await req.get('/logout/', {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);
+      alert('با موفقیت از حساب خود خارج شدید')
       navigate('/')
     } catch (e) {
       console.log(e)
