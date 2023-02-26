@@ -1,11 +1,26 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import userIcon from "../user_icon.png";
 import settingIcon from "../setting_icon.png";
 import logoutIcon from "../logout_icon.png";
 import contentIcon from "../content_icon.png";
 import login_img from "../login_logo.png";
+import req from '../api/req'
 
 const Layout = () => {
+  const navigate = useNavigate()
+  const signout = async (e) => {
+    e.preventDefault()
+    const token = localStorage.getItem("token");
+    console.log(token)
+    try {
+      const res = await req.get('/logout/', {headers: {"Authorization": `Token ${token}`}})
+      console.log(res.data);
+      navigate('/')
+    } catch (e) {
+      console.log(e)
+    }
+
+  }
   return (
     <>
       <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -102,14 +117,17 @@ const Layout = () => {
             </li>
 
             <li style={{marginBottom: '70%'}}>
-              <Link
+              {/* <Link
                 href="#"
                 class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
+              > */}
+              <div class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              onClick={signout}>
                 <img src={logoutIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
                 <p>خروج</p>
+              </div>
 
-              </Link>
+              {/* </Link> */}
             </li>
 
           </ul>
