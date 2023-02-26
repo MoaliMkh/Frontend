@@ -44,9 +44,12 @@ function Signup() {
   const onSubmit = async (e) => {
     e.preventDefault()
     const data = { username, password }
+    const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded'
+  }
     if (passwordEquality){
       try {
-        const res = await req.post('/register/', data)
+        const res = await req.post('/register/', data, {headers}, { crossdomain: true })
         console.log(res.data)
       } catch (e) {
         alert(e)

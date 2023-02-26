@@ -24,7 +24,7 @@ function Library() {
     marginRight: "auto",
     marginTop: "5%",
     borderRadius: 10,
-    height: 700,
+    height: "88%",
   };
 
   const inputFieldStyle = {
@@ -45,7 +45,7 @@ function Library() {
 
         <div class="col s2 z-depth-6 card-panel">
           <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-6 md:grid-cols-3">
+            <div class="grid gap-6 mb-6 md:grid-cols-3 justify-between">
               <span class="column">
                 <button
                   class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
