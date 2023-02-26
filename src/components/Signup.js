@@ -2,7 +2,6 @@ import './Signup.css';
 import back_img from '../Background.png'
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
-import gmail from '../gmail.png';
 import req from '../api/req';
 
 function Signup() {
@@ -147,14 +146,6 @@ function Signup() {
           <div style={{width: '100%', height: 1, backgroundColor: '#2F3233', marginTop: 5}}>
 
           </div>
-          <p style={{color: 'white', textAlign: 'center', marginBottom: 20, fontSize: 30}} class="w-full">
-            :ورود از طریق 
-          </p>
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-evenly', marginBottom: 20}}>
-            <img src={gmail} alt="pic2" style={{height: 35, marginBottom: 10}}></img>
-
-          </div> 
         </form>
     </div>
 

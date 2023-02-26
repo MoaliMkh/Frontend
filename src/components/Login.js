@@ -51,7 +51,8 @@ function Login() {
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             paddingTop: 40,
-            alignItems: 'center'
+            alignItems: 'center',
+            
             };
   
   const transStyle = {
@@ -103,18 +104,6 @@ function Login() {
 
           <div class="row">
 
-          {/* {loginSuccess 
-          ? <Link to='/signupsuccess'>
-          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" >
-              ورود
-          </button>
-          </Link>
-          :
-          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" >
-              ورود
-          </button>
-          } */}
-
           <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" 
           onClick={onSubmit}>
               ورود
@@ -125,9 +114,9 @@ function Login() {
 
           {/* {authorized ? <Link to="/"></Link> : null} */}
 
-            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center'}}>
                 <p class="margin right-align medium-small text-sm text-center text-sky-400 mr-0.5">
-                  <Link > رمز عبور خود را فراموش کرده‌اید؟</Link>
+                  <Link to="/signup"> حساب کاربری ندارید؟</Link>
                 </p>
 
                 <p class="margin right-align medium-small text-sm text-center text-white">
