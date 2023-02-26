@@ -2,6 +2,8 @@
 import back_img from '../Background.png'
 import { Link } from "react-router-dom";
 import successLogo from '../success.png'
+import contentino from '../contentino.png'
+
 
 const SignupSuccess = () => {
 
@@ -57,6 +59,10 @@ const SignupSuccess = () => {
   
           </form>  
       </div>
+
+        <div style={{position: 'absolute', bottom: 0, height: '10%'}}>
+          <img src={contentino} alt="alt" style={{ marginBottom: 0, height: '100%'}}/>
+        </div>
       </div>
     );
 }

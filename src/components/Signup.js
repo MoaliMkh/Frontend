@@ -1,12 +1,19 @@
 import './Signup.css';
 import back_img from '../Background.png'
+import contentino from '../contentino.png'
+
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import req from '../api/req';
+import { useNavigate } from 'react-router-dom';
 
 function Signup() {
+  const navigate = useNavigate();
+
 
   const [passwordEquality, setPasswordEquality] = useState(true);
+  const [uniqueness, setUniqueness] = useState(true);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
@@ -29,8 +36,6 @@ function Signup() {
 
   
   const passwordEqualityChecker = () => {
-    // var password1 = document.getElementById("password1");
-    // var password2 = document.getElementById("password2");
     if (password === secondPassword) {
       setPasswordEquality(true)
       console.log(passwordEquality)
@@ -43,15 +48,14 @@ function Signup() {
   const onSubmit = async (e) => {
     e.preventDefault()
     const data = { username, password }
-    const headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  }
     if (passwordEquality){
       try {
-        const res = await req.post('/register/', data, {headers}, { crossdomain: true })
+        const res = await req.post('/register/', data)
         console.log(res.data)
+        setUniqueness(true)
+        navigate('/signupsuccess')
       } catch (e) {
-        alert(e)
+        setUniqueness(false)
         console.log(e)
       }
     }
@@ -125,6 +129,7 @@ function Signup() {
           </div>
 
           {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
+          {!uniqueness ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">نام کاربری وارد شده، قبلا در سیستم ثبت شده است</p> : null}
 
 
           <div class="row">
@@ -149,6 +154,10 @@ function Signup() {
         </form>
     </div>
 
+    </div>
+
+    <div style={{position: 'absolute', bottom: 0, height: '10%'}}>
+      <img src={contentino} alt="alt" style={{ marginBottom: 0, height: '100%'}}/>
     </div>
     </div>
   );

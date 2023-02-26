@@ -2,6 +2,8 @@ import "./Library.css";
 import back_img from "../LibBackground.png";
 import { useState } from "react";
 import card_img from "../card.jpg";
+import contentino from '../contentino.png'
+
 
 function Library() {
   const [search, setSearch] = useState("");
@@ -172,6 +174,11 @@ function Library() {
           </div>
         </div>
       </div>
+
+      <div style={{position: 'absolute', bottom: 0, height: '10%'}}>
+        <img src={contentino} alt="alt" style={{ marginBottom: 0, height: '100%'}}/>
+      </div>
+
     </div>
   );
 }

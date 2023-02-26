@@ -1,5 +1,7 @@
 import './Login.css';
 import back_img from '../Background.png'
+import contentino from '../contentino.png'
+
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 import req from '../api/req';
@@ -131,6 +133,9 @@ function Login() {
 
         </form>
     </div>
+    </div>
+    <div style={{position: 'absolute', bottom: 0, height: '10%'}}>
+      <img src={contentino} alt="alt" style={{ marginBottom: 0, height: '100%'}}/>
     </div>
     </div>
   );
