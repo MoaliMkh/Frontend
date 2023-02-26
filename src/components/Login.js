@@ -38,7 +38,7 @@ function Login() {
       localStorage.setItem("token", token);
       console.log(token);
       setAuthorized(true)
-      navigate('/signupsuccess')
+      navigate('/library')
     } catch (e) {
       setAuthorized(false)
       console.log(e)

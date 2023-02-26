@@ -31,7 +31,7 @@ function Library() {
 
   const inputFieldStyle = {
     width: "90%",
-    paddingLeft: "15%",
+    paddingLeft: "10%",
     paddingRight: "10%",
   };
 
@@ -47,12 +47,13 @@ function Library() {
 
         <div class="col s2 z-depth-6 card-panel">
           <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-6 md:grid-cols-3 justify-between">
+            <div class="grid gap-6 mb-6 ml-1 md:grid-cols-3 justify-between">
               <span class="column">
                 <button
-                  class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
+                  class=" hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
                   style={{
                     width: 200,
+                    backgroundColor: '#A7DEA6'
                   }}
                 >
                   اعمال
@@ -64,6 +65,7 @@ function Library() {
                   class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
                   style={{
                     width: 200,
+                    backgroundColor: '#D9D9D9'
                   }}
                 >
                   فیلتر
@@ -84,6 +86,7 @@ function Library() {
                     }}
                     style={{
                       width: 350,
+                      backgroundColor: '#D9D9D9'
                     }}
                   ></input>
                 </form>

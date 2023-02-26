@@ -1,10 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
-import vector1 from "../Vector.png";
-import vector2 from "../Vector2.png";
-import vector3 from "../Vector3.png";
-import vector4 from "../Vector4.png";
-import vector5 from "../Vector5.png";
-import vector6 from "../Vector6.png";
+import userIcon from "../user_icon.png";
+import settingIcon from "../setting_icon.png";
+import logoutIcon from "../logout_icon.png";
+import contentIcon from "../content_icon.png";
 import login_img from "../login_logo.png";
 
 const Layout = () => {
@@ -63,42 +61,55 @@ const Layout = () => {
 
       <aside
         id="default-sidebar"
-        class="fixed top-0 right-0 z-40 w-16 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        // class="fixed top-0 right-0 z-40 w-16 h-screen transition-transform -translate-x-full sm:translate-x-0"
+        class="fixed top-0 right-0 z-40 w-16 h-screen transition-transform sm:translate-x-0"
+
         aria-label="Sidebar"
       >
         <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <ul class="space-y-2">
-            <li>
-              <a
+
+            <li style={{marginBottom: '70%', marginTop: '100%'}}>
+              <Link
                 href="#"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <img src={vector4} alt="vec1"></img>
-              </a>
+                <img src={userIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <p>نام کاربری</p>
+
+              </Link>
             </li>
-            <li>
-              <a
+
+            <li style={{marginBottom: '70%'}}>
+              <Link
                 href="#"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <img src={vector5} alt="vec1"></img>
-              </a>
+                <img src={contentIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <p>محتواها</p>
+              </Link>
             </li>
-            <li>
-              <a
+
+            <li style={{marginBottom: '70%'}}>
+              <Link
                 href="#"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <img src={vector1} alt="vec1"></img>
-              </a>
+                <img src={settingIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <p>ویرایش حساب</p>
+
+              </Link>
             </li>
-            <li>
-              <a
+
+            <li style={{marginBottom: '70%'}}>
+              <Link
                 href="#"
-                class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <img src={vector6} alt="vec1"></img>
-              </a>
+                <img src={logoutIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <p>خروج</p>
+
+              </Link>
             </li>
 
           </ul>
