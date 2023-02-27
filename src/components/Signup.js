@@ -6,9 +6,11 @@ import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import req from '../api/req';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from 'react-alert';
 
 function Signup() {
   const navigate = useNavigate();
+  const alert = useAlert()
 
 
   const [passwordEquality, setPasswordEquality] = useState(true);
@@ -55,6 +57,7 @@ function Signup() {
         localStorage.setItem("token", token);
         console.log(res.data)
         setUniqueness(true)
+        alert.show('حساب کاربری شما با موفقیت ساخته شد')
         navigate('/signupsuccess')
       } catch (e) {
         setUniqueness(false)
@@ -62,7 +65,7 @@ function Signup() {
       }
     }
     else{
-      alert("Correct Your Information!")
+      alert("اطلاعات خود را به درستی وارد کنید")
     }
   }
 
