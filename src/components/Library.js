@@ -8,6 +8,14 @@ import contentino from '../contentino.png'
 function Library() {
   const [search, setSearch] = useState("");
 
+  const createLibrary = () => {
+
+  }
+
+  const seeLibrary = () => {
+    
+  }
+
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -175,6 +183,16 @@ function Library() {
               </div>
             </div>
           </div>
+
+          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" 
+          onClick={createLibrary}>
+             ساخت کتابخانه جدید 
+          </button>
+
+          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" 
+          onClick={seeLibrary}>
+            مشاهده تمام کتابخانه‌ها
+          </button>
         </div>
       </div>
 

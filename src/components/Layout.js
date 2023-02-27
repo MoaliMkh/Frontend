@@ -17,11 +17,10 @@ const Layout = () => {
     try {
       const res = await req.get('/logout/', {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);
-      alert.show('با موفقیت از حساب خود خارج شدید')
       localStorage.removeItem("token")
       localStorage.removeItem("user_id")
-
-      navigate('/')
+      alert.show('با موفقیت از حساب خود خارج شدید')
+      navigate('/login')
     } catch (e) {
       console.log(e)
     }
@@ -68,9 +67,6 @@ const Layout = () => {
               </li>
               <li>
                 <Link to="/aboutus">درباره ما</Link>
-              </li>
-              <li>
-                <Link to="/library">کتابخانه</Link>
               </li>
               <li>
                 <Link to="/">خانه</Link>
