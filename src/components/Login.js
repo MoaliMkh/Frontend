@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import { useState } from 'react';
 import req from '../api/req';
 import { useNavigate } from 'react-router-dom';
+import { useAlert } from 'react-alert'
+
 
 
 
 function Login() {
   const navigate = useNavigate();
+  const alert = useAlert()
 
 
   const [authorized, setAuthorized] = useState(true);
@@ -38,6 +41,7 @@ function Login() {
       localStorage.setItem("token", token);
       console.log(token);
       setAuthorized(true)
+      alert.show('با موفقیت به حساب خود وارد شدید')
       navigate('/library')
     } catch (e) {
       setAuthorized(false)
