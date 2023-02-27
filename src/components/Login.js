@@ -4,7 +4,7 @@ import contentino from '../contentino.png'
 
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import req from '../api/req';
+import req from '../api/login_signup_req';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert'
 

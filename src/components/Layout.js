@@ -4,9 +4,11 @@ import settingIcon from "../setting_icon.png";
 import logoutIcon from "../logout_icon.png";
 import contentIcon from "../content_icon.png";
 import login_img from "../login_logo.png";
-import req from '../api/req'
+import req from '../api/login_signup_req'
+import { useAlert } from "react-alert";
 
 const Layout = () => {
+  const alert = useAlert()
   const navigate = useNavigate()
   const signout = async (e) => {
     e.preventDefault()
@@ -15,7 +17,7 @@ const Layout = () => {
     try {
       const res = await req.get('/logout/', {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);
-      alert('با موفقیت از حساب خود خارج شدید')
+      alert.show('با موفقیت از حساب خود خارج شدید')
       navigate('/')
     } catch (e) {
       console.log(e)
