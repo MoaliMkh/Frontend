@@ -54,8 +54,9 @@ function Signup() {
       try {
         const res = await req.post('/register/', data)
         const {token} = res.data || {};
+        const user_id = res.data.user.id
+        localStorage.setItem("user_id", user_id);
         localStorage.setItem("token", token);
-        console.log(res.data)
         setUniqueness(true)
         alert.show('حساب کاربری شما با موفقیت ساخته شد')
         navigate('/signupsuccess')

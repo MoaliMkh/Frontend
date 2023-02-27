@@ -38,8 +38,9 @@ function Login() {
     try {
       const res = await req.post('/login/', data)
       const {token} = res.data || {};
+      const user_id = res.data.user.id
       localStorage.setItem("token", token);
-      console.log(token);
+      localStorage.setItem("user_id", user_id);
       setAuthorized(true)
       alert.show('با موفقیت به حساب خود وارد شدید')
       navigate('/library')

@@ -18,6 +18,9 @@ const Layout = () => {
       const res = await req.get('/logout/', {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);
       alert.show('با موفقیت از حساب خود خارج شدید')
+      localStorage.removeItem("token")
+      localStorage.removeItem("user_id")
+
       navigate('/')
     } catch (e) {
       console.log(e)
