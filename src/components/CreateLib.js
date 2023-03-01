@@ -2,13 +2,32 @@ import "./CreateLib.css";
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
 import { useState } from "react";
+import req from '../api/user_req';
+import { useNavigate } from "react-router-dom";
+import { useAlert } from 'react-alert'
+
 
 function CreateLib() {
+  const navigate = useNavigate();
+  const alert = useAlert();
   const [libName, setLibName] = useState("");
-  const [libType, setLibType] = useState("");
+  const [libType, setLibType] = useState("Audio");
 
   const onSubmit = async (e) => {
-    console.log("TO DO");
+    e.preventDefault()
+    const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
+    const data = {"name": `${libName}`, "content_type": `${libType}`, "user": `${user_id}`}
+
+    console.log(token)
+    try {
+      const res = await req.post(`/${user_id}/library/`, data, {headers: {"Authorization": `Token ${token}`}})
+      console.log(res.data);
+      alert.show('کتابخانه با موفقیت ساخته شد')
+      navigate('/library')
+    } catch (e) {
+      console.log(e)
+    }
   };
 
   const myStyle = {
@@ -37,6 +56,7 @@ function CreateLib() {
     paddingLeft: "15%",
     paddingRight: "10%",
   };
+
 
   return (
     <div style={myStyle}>
@@ -75,12 +95,12 @@ function CreateLib() {
                   name="cars"
                   class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
                   value={libType}
+                  defaultValue="Audio"
                   onChange={(e) => setLibType(e.target.value)}
                 >
-                  <option value="audio">صوت</option>
-                  <option value="video">فیلم</option>
-                  <option value="photo">عکس</option>
-                  <option value="pdf">فایل متن</option>
+                  <option value="Audio">صوت</option>
+                  <option value="Video">فیلم</option>
+                  <option value="Book">کتاب</option>
                 </select>
               </div>
             </form>
