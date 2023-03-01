@@ -1,53 +1,14 @@
 import "./CreateLib.css";
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
-
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import req from "../api/login_signup_req";
-import { useNavigate } from "react-router-dom";
-import { useAlert } from "react-alert";
 
 function CreateLib() {
-  const navigate = useNavigate();
-  const alert = useAlert();
-
-  const [passwordEquality, setPasswordEquality] = useState(true);
-  const [uniqueness, setUniqueness] = useState(true);
-
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [secondPassword, setSecondPassword] = useState("");
-
-  const passwordEqualityChecker = () => {
-    if (password === secondPassword) {
-      setPasswordEquality(true);
-      console.log(passwordEquality);
-    } else {
-      setPasswordEquality(false);
-    }
-  };
+  const [libName, setLibName] = useState("");
+  const [libType, setLibType] = useState("");
 
   const onSubmit = async (e) => {
-    e.preventDefault();
-    const data = { username, password };
-    if (passwordEquality) {
-      try {
-        const res = await req.post("/register/", data);
-        const { token } = res.data || {};
-        const user_id = res.data.user.id;
-        localStorage.setItem("user_id", user_id);
-        localStorage.setItem("token", token);
-        setUniqueness(true);
-        alert.show("حساب کاربری شما با موفقیت ساخته شد");
-        navigate("/signupsuccess");
-      } catch (e) {
-        setUniqueness(false);
-        console.log(e);
-      }
-    } else {
-      alert("اطلاعات خود را به درستی وارد کنید");
-    }
+    console.log("TO DO");
   };
 
   const myStyle = {
@@ -96,8 +57,9 @@ function CreateLib() {
                   class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
                   placeholder="نام کتابخانه"
                   required
+                  value={libName}
                   onChange={(event) => {
-                    setUsername(event.target.value);
+                    setLibName(event.target.value);
                   }}
                 ></input>
               </div>
@@ -105,17 +67,6 @@ function CreateLib() {
 
             <form class="row">
               <div class="input-field col s12">
-                {/* <input
-                  type="password"
-                  id="password1"
-                  class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
-                  placeholder="نوع کتابخانه"
-                  value={password}
-                  required
-                  onChange={(event) => {
-                    setPassword(event.target.value);
-                  }}
-                ></input> */}
                 <label class="text-right font-bold w-full border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4">
                   نوع کتابخانه
                 </label>
@@ -132,27 +83,14 @@ function CreateLib() {
               </div>
             </form>
 
-            {!passwordEquality ? (
-              <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">
-                رمزهای عبور، با هم مغایرت دارند
-              </p>
-            ) : null}
-            {!uniqueness ? (
-              <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">
-                نام کاربری وارد شده، قبلا در سیستم ثبت شده است
-              </p>
-            ) : null}
-
             <div class="row">
-              <Link to="/signupsuccess">
-                <button
-                  onClick={onSubmit}
-                  type="button"
-                  class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none"
-                >
-                  ساخت کتابخانه
-                </button>
-              </Link>
+              <button
+                onClick={onSubmit}
+                type="button"
+                class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none"
+              >
+                ساخت کتابخانه
+              </button>
             </div>
           </form>
         </div>
