@@ -1,12 +1,14 @@
 import "./Library.css";
 import back_img from "../LibBackground.png";
 import { useState } from "react";
-import card_img from "../card.jpg";
 import contentino from "../contentino.png";
+import LibraryList from "./LibraryList";
+import { useLocation } from "react-router-dom";
 
 function Libraries() {
   const [search, setSearch] = useState("");
-
+  const {state} = useLocation();
+  console.log(state)
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -92,87 +94,9 @@ function Libraries() {
               </span>
             </div>
 
-            <div class="grid gap-3 mb-6 md:grid-cols-4">
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
+            <LibraryList libList={state}/>
 
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
 
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
