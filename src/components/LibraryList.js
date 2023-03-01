@@ -4,11 +4,14 @@ import card_img from "../card.jpg";
 
 const LibraryList = (props) => {
 
+    const fetchEachLibrary = (index) => {
+        console.log(index)
+    }
+
     const renderLibrary = (library, idx) => {
     return (
-    // <div style={{flexDirection: 'row', display: 'flex', justifyContent: 'space-between'}}>
 
-    <li style={{width: '80%', marginBottom: '15%'}} key={idx} >
+    <li style={{width: '80%', marginBottom: '15%'}} key={idx} onClick={() => {fetchEachLibrary(idx)}} >
         <div class="max-w-sm rounded overflow-hidden shadow-lg"  >
             <img
                 class="w-full"
@@ -34,13 +37,11 @@ const LibraryList = (props) => {
             <FlatList
             list={props.libList}
             renderItem={renderLibrary}
-            renderWhenEmpty={() => <div>List is empty!</div>}
+            renderWhenEmpty={() => <div style={{color: 'red'}}>کتابخانه‌ای برای نمایش وجود ندارد</div>}
             display={{
                 grid: true,
               }}
             gridGap="0.005%"
-            // sortBy={["firstName", {key: "lastName", descending: true}]}
-            // groupBy={person => person.info.age > 18 ? 'Over 18' : 'Under 18'}
             />
         </ul>
     )

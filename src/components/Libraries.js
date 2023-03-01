@@ -29,14 +29,16 @@ function Libraries() {
     marginTop: "5%",
     borderRadius: 10,
     height: "88%",
-    overflow: "auto"
+    overflow: "auto",
 
   };
 
   const inputFieldStyle = {
     width: "90%",
-    paddingLeft: "10%",
-    paddingRight: "10%",
+    // paddingLeft: "13%",
+    // paddingRight: "10%",
+    marginRight: '5%',
+    marginLeft: '7%'
   };
 
   return (
@@ -46,61 +48,60 @@ function Libraries() {
           style={{ color: "white", textAlign: "center", marginBottom: 20 }}
           class="w-full"
         >
-          کتابخانه ها
+          کتابخانه‌ها
         </p>
 
         <div class="col s2 z-depth-6 card-panel">
-          <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-6 ml-1 md:grid-cols-3 justify-between">
-              <span class="column">
-                <button
-                  class=" hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
-                  style={{
-                    width: 200,
-                    backgroundColor: "#A7DEA6",
-                  }}
-                >
-                  اعمال
-                </button>
-              </span>
-
-              <span class="column">
-                <button
-                  class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
-                  style={{
-                    width: 200,
-                    backgroundColor: "#D9D9D9",
-                  }}
-                >
-                  فیلتر
-                </button>
-              </span>
-
-              <span class="column">
-                <form>
-                  <input
-                    type="text"
-                    id="search"
-                    class="text-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
-                    placeholder="جستجو"
-                    value={search}
-                    required
-                    onChange={(event) => {
-                      setSearch(event.target.value);
-                    }}
+          <div class="flex mb-6 ml-10 md:grid-cols-3">
+                <span class="column">
+                  <button
+                    class=" hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
                     style={{
-                      width: 350,
+                      width: 200,
+                      backgroundColor: "#A7DEA6",
+                    }}
+                  >
+                    اعمال
+                  </button>
+                </span>
+
+                <span class="column">
+                  <button
+                    class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
+                    style={{
+                      width: 200,
                       backgroundColor: "#D9D9D9",
                     }}
-                  ></input>
-                </form>
-              </span>
-            </div>
+                  >
+                    فیلتر
+                  </button>
+                </span>
 
-            <LibraryList libList={state}/>
-
-
+                <span class="column">
+                  <form>
+                    <input
+                      type="text"
+                      id="search"
+                      class="text-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+                      placeholder="جستجو"
+                      value={search}
+                      required
+                      onChange={(event) => {
+                        setSearch(event.target.value);
+                      }}
+                      style={{
+                        width: 350,
+                        backgroundColor: "#D9D9D9",
+                      }}
+                    ></input>
+                  </form>
+                </span>
           </div>
+
+          <div style={inputFieldStyle}>
+            <LibraryList libList={state}/>
+          </div>
+
         </div>
       </div>
 
