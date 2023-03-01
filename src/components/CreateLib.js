@@ -19,7 +19,6 @@ function CreateLib() {
   const [password, setPassword] = useState("");
   const [secondPassword, setSecondPassword] = useState("");
 
-
   const passwordEqualityChecker = () => {
     if (password === secondPassword) {
       setPasswordEquality(true);
@@ -106,7 +105,7 @@ function CreateLib() {
 
             <form class="row">
               <div class="input-field col s12">
-                <input
+                {/* <input
                   type="password"
                   id="password1"
                   class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
@@ -116,7 +115,20 @@ function CreateLib() {
                   onChange={(event) => {
                     setPassword(event.target.value);
                   }}
-                ></input>
+                ></input> */}
+                <label class="text-right font-bold w-full border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4">
+                  نوع کتابخانه
+                </label>
+                <select
+                  id="cars"
+                  name="cars"
+                  class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+                >
+                  <option value="audio">صوت</option>
+                  <option value="video">فیلم</option>
+                  <option value="photo">عکس</option>
+                  <option value="pdf">فایل متن</option>
+                </select>
               </div>
             </form>
 
