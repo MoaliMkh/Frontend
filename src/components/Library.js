@@ -1,21 +1,10 @@
+import { Link } from "react-router-dom";
+
 import "./Library.css";
 import back_img from "../LibBackground.png";
-import { useState } from "react";
-import card_img from "../card.jpg";
-import contentino from '../contentino.png'
-
+import contentino from "../contentino.png";
 
 function Library() {
-  const [search, setSearch] = useState("");
-
-  const createLibrary = () => {
-
-  }
-
-  const seeLibrary = () => {
-    
-  }
-
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -46,6 +35,7 @@ function Library() {
   return (
     <div style={myStyle}>
       <div style={transStyle}>
+        <br />
         <p
           style={{ color: "white", textAlign: "center", marginBottom: 20 }}
           class="w-full"
@@ -53,134 +43,38 @@ function Library() {
           کتابخانه
         </p>
 
-        <div class="col s2 z-depth-6 card-panel">
+        <br />
+
+        <div class="s2 z-depth-6 card-panel">
           <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-6 ml-1 md:grid-cols-3 justify-between">
+            <div class="grid gap-6 mb-1 ml-1 md:grid-cols-1 justify-center">
               <span class="column">
-                <button
-                  class=" hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
-                  style={{
-                    width: 200,
-                    backgroundColor: '#A7DEA6'
-                  }}
-                >
-                  اعمال
-                </button>
-              </span>
-
-              <span class="column">
-                <button
-                  class="bg-emerald-300 hover:bg-emerald-400 text-white px-8 py-1 rounded-full"
-                  style={{
-                    width: 200,
-                    backgroundColor: '#D9D9D9'
-                  }}
-                >
-                  فیلتر
-                </button>
-              </span>
-
-              <span class="column">
-                <form>
-                  <input
-                    type="text"
-                    id="search"
-                    class="text-right bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
-                    placeholder="جستجو"
-                    value={search}
-                    required
-                    onChange={(event) => {
-                      setSearch(event.target.value);
-                    }}
+                <Link to="/CreateLib">
+                  <button
+                    class="bg-violet-300 hover:bg-violet-400 text-white px-8 py-1 rounded-full"
                     style={{
-                      width: 350,
-                      backgroundColor: '#D9D9D9'
+                      width: 800,
+                      height: 60,
                     }}
-                  ></input>
-                </form>
+                  >
+                    ایجاد کتابخانه جدید
+                  </button>
+                </Link>
               </span>
-            </div>
 
-            <div class="grid gap-3 mb-6 md:grid-cols-4">
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
-
-              <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                <img
-                  class="w-full"
-                  src={card_img}
-                  alt="Sunset in the mountains"
-                ></img>
-                <div class="px-6 py-3 bg-zinc-300">
-                  <div class="font-bold text-xl mb-2">Lib Name</div>
-                </div>
-                <div class="px-6 bg-zinc-300">
-                  <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-                    Type
-                  </span>
-                </div>
-              </div>
+              <span class="column">
+                <Link to="/Libraries">
+                  <button
+                    class="bg-violet-300 hover:bg-violet-400 text-white px-8 py-1 rounded-full"
+                    style={{
+                      width: 800,
+                      height: 60,
+                    }}
+                  >
+                    مشاهده مجموعه کتابخانه ها
+                  </button>
+                </Link>
+              </span>
             </div>
           </div>
 
@@ -196,10 +90,13 @@ function Library() {
         </div>
       </div>
 
-      <div style={{position: 'absolute', bottom: 0, height: '10%'}}>
-        <img src={contentino} alt="alt" style={{ marginBottom: 0, height: '100%'}}/>
+      <div style={{ position: "absolute", bottom: 0, height: "10%" }}>
+        <img
+          src={contentino}
+          alt="alt"
+          style={{ marginBottom: 0, height: "100%" }}
+        />
       </div>
-
     </div>
   );
 }
