@@ -8,19 +8,12 @@ import req from '../api/login_signup_req';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert'
 
-
-
-
 function Login() {
   const navigate = useNavigate();
-  const alert = useAlert()
-
-
+  const alert = useAlert();
   const [authorized, setAuthorized] = useState(true);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-
 
   const passwordVisibility = () => {
     var x = document.getElementById("password");
@@ -115,11 +108,6 @@ function Login() {
           onClick={onSubmit}>
               ورود
           </button>
-
-
-
-
-          {/* {authorized ? <Link to="/"></Link> : null} */}
 
             <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center'}}>
                 <p class="margin right-align medium-small text-sm text-center text-sky-400 mr-0.5">

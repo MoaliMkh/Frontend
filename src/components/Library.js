@@ -18,13 +18,13 @@ function Library() {
   const transStyle = {
     backgroundColor: "#595B60",
     opacity: 0.94,
-    width: "60%",
+    width: "70%",
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "5%",
     borderRadius: 10,
-    height: "88%",
-  };
+    height: "88%"
+    };
 
   const inputFieldStyle = {
     width: "90%",
@@ -45,16 +45,16 @@ function Library() {
 
         <br />
 
-        <div class="s2 z-depth-6 card-panel">
+        <div class="s2 z-depth-6 card-panel" style={{marginRight: '15%', marginLeft: '20%'}}>
           <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-1 ml-1 md:grid-cols-1 justify-center">
-              <span class="column">
+            <div class="grid gap-6 mb-1 ml-1 md:grid-cols-1 justify-center items-start">
+              <span class="column" style={{width: '100%'}}>
                 <Link to="/CreateLib">
                   <button
-                    class="bg-violet-300 hover:bg-violet-400 text-white px-8 py-1 rounded-full"
+                    class="bg-violet-300 hover:bg-violet-400 text-white px-4 py-1 rounded-full"
                     style={{
-                      width: 800,
-                      height: 60,
+                      width: '100%',
+                      height: '100%',
                     }}
                   >
                     ایجاد کتابخانه جدید
@@ -62,31 +62,22 @@ function Library() {
                 </Link>
               </span>
 
-              <span class="column">
+              <span class="column" style={{width: '100%'}}>
                 <Link to="/Libraries">
                   <button
                     class="bg-violet-300 hover:bg-violet-400 text-white px-8 py-1 rounded-full"
                     style={{
-                      width: 800,
-                      height: 60,
+                      width: '100%',
+                      height: '100%',
                     }}
                   >
-                    مشاهده مجموعه کتابخانه ها
+                    مشاهده مجموعه کتابخانه‌ها
                   </button>
                 </Link>
               </span>
             </div>
           </div>
-
-          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" 
-          onClick={createLibrary}>
-             ساخت کتابخانه جدید 
-          </button>
-
-          <button type="button" class="text-center text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none" 
-          onClick={seeLibrary}>
-            مشاهده تمام کتابخانه‌ها
-          </button>
+        
         </div>
       </div>
 
