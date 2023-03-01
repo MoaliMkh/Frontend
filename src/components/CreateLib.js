@@ -74,6 +74,8 @@ function CreateLib() {
                   id="cars"
                   name="cars"
                   class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4"
+                  value={libType}
+                  onChange={(e) => setLibType(e.target.value)}
                 >
                   <option value="audio">صوت</option>
                   <option value="video">فیلم</option>
