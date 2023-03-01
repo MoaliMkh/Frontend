@@ -19,7 +19,6 @@ function CreateLib() {
     const user_id = localStorage.getItem("user_id");
     const data = {"name": `${libName}`, "content_type": `${libType}`, "user": `${user_id}`}
 
-    console.log(token)
     try {
       const res = await req.post(`/${user_id}/library/`, data, {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);

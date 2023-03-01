@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
-
+import req from '../api/user_req'
 import "./Library.css";
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
+import { useNavigate } from "react-router-dom";
+
 
 function Library() {
+  const navigate = useNavigate();
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    const token = localStorage.getItem("token");
+    const user_id = localStorage.getItem("user_id");
+
+    try {
+      const res = await req.get(`/${user_id}/library/`, {headers: {"Authorization": `Token ${token}`}})
+      console.log(res.data);
+      navigate('/libraries')
+    } catch (e) {
+      console.log(e)
+    }
+  };
+
+
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -70,6 +88,7 @@ function Library() {
                       width: '100%',
                       height: '100%',
                     }}
+                    onClick={onSubmit}
                   >
                     مشاهده مجموعه کتابخانه‌ها
                   </button>
