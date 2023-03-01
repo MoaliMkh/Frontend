@@ -17,6 +17,7 @@ function Libraries() {
     backgroundRepeat: "no-repeat",
     paddingTop: 40,
     alignItems: "center",
+    overflow: "auto"
   };
 
   const transStyle = {
@@ -28,6 +29,8 @@ function Libraries() {
     marginTop: "5%",
     borderRadius: 10,
     height: "88%",
+    overflow: "auto"
+
   };
 
   const inputFieldStyle = {
