@@ -1,12 +1,12 @@
 import "./upload.css";
 import back_img from "../LibBackground.png";
-import { useState } from "react";
 import contentino from "../contentino.png";
-import LibraryList from "./LibraryList";
 import { useLocation } from "react-router-dom";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+
+import { FileUpload } from "primereact/fileupload";
 
 function Upload() {
-  const [search, setSearch] = useState("");
   const { state } = useLocation();
   console.log(state);
   const myStyle = {
@@ -35,12 +35,15 @@ function Upload() {
   return (
     <div style={myStyle}>
       <div style={transStyle}>
-
-
-
-        
+        <p
+          style={{ color: "white", textAlign: "center", marginBottom: 20 }}
+          class="w-full"
+        >
+          بارگذاری فایل
+        </p>
+        <br />
+        <FileUpload name="uploader" url="./upload" />
       </div>
-
       <div style={{ position: "absolute", bottom: 0, height: "10%" }}>
         <img
           src={contentino}

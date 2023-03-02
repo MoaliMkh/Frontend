@@ -12,6 +12,9 @@ import Upload from "./components/upload";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import { locale, addLocale, updateLocaleOption, updateLocaleOptions, localeOption, localeOptions } from 'primereact/api';
+
+
 function App() {
   return (
     <BrowserRouter>
