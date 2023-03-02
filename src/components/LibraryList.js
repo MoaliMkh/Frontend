@@ -37,7 +37,7 @@ const LibraryList = (props) => {
             <FlatList
             list={props.libList}
             renderItem={renderLibrary}
-            renderWhenEmpty={() => <div style={{color: 'red'}}>کتابخانه‌ای برای نمایش وجود ندارد</div>}
+            renderWhenEmpty={() => <div style={{color: 'red', textAlign: 'center'}}>کتابخانه‌ای برای نمایش وجود ندارد</div>}
             display={{
                 grid: true,
               }}
