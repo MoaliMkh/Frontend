@@ -8,6 +8,7 @@ import AboutUs from "./components/AboutUs";
 import Library from "./components/Library";
 import CreateLib from "./components/CreateLib";
 import Libraries from "./components/Libraries";
+import Upload from "./components/upload";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="library" element={<Library />} />
           <Route path="CreateLib" element={<CreateLib />} />
           <Route path="Libraries" element={<Libraries />} />
+          <Route path="upload" element={<Upload />} />
         </Route>
       </Routes>
     </BrowserRouter>
