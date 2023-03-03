@@ -57,6 +57,7 @@ function Signup() {
         const user_id = res.data.user.id
         localStorage.setItem("user_id", user_id);
         localStorage.setItem("token", token);
+        localStorage.setItem("password", password);
         setUniqueness(true)
         alert.show('حساب کاربری شما با موفقیت ساخته شد')
         navigate('/signupsuccess')

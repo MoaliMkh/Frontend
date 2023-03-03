@@ -34,6 +34,8 @@ function Login() {
       const user_id = res.data.user.id
       localStorage.setItem("token", token);
       localStorage.setItem("user_id", user_id);
+      localStorage.setItem("password", password);
+
       setAuthorized(true)
       alert.show('با موفقیت به حساب خود وارد شدید')
       navigate('/library')

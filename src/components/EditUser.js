@@ -14,7 +14,7 @@ function EditUser() {
 
 
   const [passwordEquality, setPasswordEquality] = useState(true);
-  const [otherPartsVisibility, setOtherPartsVisibility] = useState(false);
+  const [otherPartsVisibility, setOtherPartsVisibility] = useState(true);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +42,7 @@ function EditUser() {
       setOtherPartsVisibility(true)
     }
     else{
-      setOtherPartsVisibility(false)
+      setOtherPartsVisibility(true)
     }
   }
 
@@ -96,7 +96,6 @@ function EditUser() {
 
   };
 
-
   return (
     <div style={myStyle}>
       <div style={transStyle}>
@@ -111,44 +110,50 @@ function EditUser() {
               placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
           </form>
+
+          {otherPartsVisibility ? 
+          <div>
+                  <form class="row">
+                     <div class="input-field col s12">
+                       <input type="phone" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                       placeholder="شماره تلفن همراه" value={secondPassword} required onChange={(event) => {setSecondPassword(event.target.value)}}></input>
+                     </div>
+                   </form>
+         
+         
+                   <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7, justifyContent: 'right'}}>  
+                       <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
+                       <input type="checkbox" onClick={() => {passwordVisibility()}}></input>
+                   </div>
+         
+                   {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
+         
+         
+                   <div class="row">
+         
+                     <Link to='/signupsuccess'>
+                     <button onClick={onSubmit} type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
+                         ثبت‌نام
+                     </button>
+                     </Link>
+         
+                     <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
+         
+                         <p class="text-center medium-small text-sm text-sky-400" style={{flex: '100%'}}>
+                           <Link to="/login">حساب کاربری دارید؟ ورود</Link>
+                         </p>
+                     </div>            
+                   </div>
+         
+                   <div style={{width: '100%', height: 1, backgroundColor: '#2F3233', marginTop: 5}}>
+         
+                   </div>
+          </div>
+          : null}
           
 
 
-          <form class="row">
-            <div class="input-field col s12">
-              <input type="phone" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-              placeholder="شماره تلفن همراه" value={secondPassword} required onChange={(event) => {setSecondPassword(event.target.value)}}></input>
-            </div>
-          </form>
-
-
-          <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 7, justifyContent: 'right'}}>  
-              <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
-              <input type="checkbox" onClick={() => {passwordVisibility()}}></input>
-          </div>
-
-          {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
-
-
-          <div class="row">
-
-            <Link to='/signupsuccess'>
-            <button onClick={onSubmit} type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
-                ثبت‌نام
-            </button>
-            </Link>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-
-                <p class="text-center medium-small text-sm text-sky-400" style={{flex: '100%'}}>
-                  <Link to="/login">حساب کاربری دارید؟ ورود</Link>
-                </p>
-            </div>            
-          </div>
-
-          <div style={{width: '100%', height: 1, backgroundColor: '#2F3233', marginTop: 5}}>
-
-          </div>
+          
         </form>
     </div>
 
