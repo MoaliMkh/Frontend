@@ -13,7 +13,6 @@ function EditUser() {
   const alert = useAlert()
 
 
-  const [passwordEquality, setPasswordEquality] = useState(true);
   const [otherPartsVisibility, setOtherPartsVisibility] = useState(false);
 
   const [username, setUsername] = useState("");
@@ -51,21 +50,16 @@ function EditUser() {
   const onSubmit = async (e) => {
     e.preventDefault()
     const user_id = localStorage.getItem("user_id");
-    const token = localStorage.getItem("token")
-
-    const data = { username, password }
-    if (passwordEquality){
-      try {
-        const res = await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
-        alert.show('حساب کاربری شما با موفقیت ساخته شد')
-        navigate('/signupsuccess')
-      } catch (e) {
-        console.log(e)
-      }
+    const token = localStorage.getItem("token");
+    const data = { "username": username, "new_password": newPassword, "phone_number": phoneNum, "password": password }
+    try {
+      const res = await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
+      alert.show('تغییرات با موفقیت اعمال شد')
+      navigate('/')
+    } catch (e) {
+      console.log(e)
     }
-    else{
-      alert("اطلاعات خود را به درستی وارد کنید")
-    }
+    
   }
 
   const myStyle={
@@ -141,9 +135,7 @@ function EditUser() {
                        <p class="text-sm" style={{marginRight: 5}}>نمایش رمز عبور</p>
                        <input type="checkbox" onClick={() => {passwordVisibility()}}></input>
                    </div>
-         
-                   {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
-         
+                  
          
                    <div class="row">
          
