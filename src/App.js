@@ -1,7 +1,7 @@
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import HomePage from "./components/HomePage";
+import HomePage from "./components/Home";
 import Layout from "./components/Layout";
 import SignupSuccess from "./components/SignupSuccess";
 import AboutUs from "./components/AboutUs";
