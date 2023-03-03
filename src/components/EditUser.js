@@ -14,7 +14,7 @@ function EditUser() {
 
 
   const [passwordEquality, setPasswordEquality] = useState(true);
-  const [uniqueness, setUniqueness] = useState(true);
+  const [otherPartsVisibility, setOtherPartsVisibility] = useState(false);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -36,16 +36,16 @@ function EditUser() {
     }
   }
 
-  
-  const passwordEqualityChecker = () => {
-    if (password === secondPassword) {
-      setPasswordEquality(true)
-      console.log(passwordEquality)
-      
-    } else {
-      setPasswordEquality(false)
+  const checkPasswordAuth = (password) => {
+    const realPassword = localStorage.getItem("password");
+    if (password === realPassword){ 
+      setOtherPartsVisibility(true)
+    }
+    else{
+      setOtherPartsVisibility(false)
     }
   }
+
 
   const onSubmit = async (e) => {
     e.preventDefault()
@@ -57,11 +57,9 @@ function EditUser() {
         const user_id = res.data.user.id
         localStorage.setItem("user_id", user_id);
         localStorage.setItem("token", token);
-        setUniqueness(true)
         alert.show('حساب کاربری شما با موفقیت ساخته شد')
         navigate('/signupsuccess')
       } catch (e) {
-        setUniqueness(false)
         console.log(e)
       }
     }
@@ -102,17 +100,10 @@ function EditUser() {
   return (
     <div style={myStyle}>
       <div style={transStyle}>
-        <p style={{color: 'white', textAlign: 'center', marginBottom: 20}} class="w-full">ثبت‌نام</p>
+        <p style={{color: 'white', textAlign: 'center', marginBottom: 20}} class="w-full">برای تغییرات، ابتدا رمز عبور را وارد کنید</p>
         <div class="col s12 z-depth-6 card-panel">
         <form class="login-form" style={inputFieldStyle}>
 
-
-          <form class="row">
-            <div class="input-field col s12">
-              <input type="text" id="email" class="text-right bg-gray-50 border w-full center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
-              placeholder="ایمیل" required onChange={(event) => {setUsername(event.target.value)}}></input>
-            </div>
-          </form>
 
           <form class="row">
             <div class="input-field col s12">
@@ -120,11 +111,13 @@ function EditUser() {
               placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
           </form>
+          
+
 
           <form class="row">
             <div class="input-field col s12">
-              <input type="password" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-              placeholder="تکرار رمز عبور" value={secondPassword} required onChange={(event) => {setSecondPassword(event.target.value)}} onBlur={passwordEqualityChecker}></input>
+              <input type="phone" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+              placeholder="شماره تلفن همراه" value={secondPassword} required onChange={(event) => {setSecondPassword(event.target.value)}}></input>
             </div>
           </form>
 
@@ -135,7 +128,6 @@ function EditUser() {
           </div>
 
           {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
-          {!uniqueness ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">نام کاربری وارد شده، قبلا در سیستم ثبت شده است</p> : null}
 
 
           <div class="row">

@@ -109,7 +109,7 @@ const Layout = () => {
 
             <li style={{marginBottom: '70%'}}>
               <Link
-                href="#"
+                to="/edituser"
                 class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img src={settingIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>

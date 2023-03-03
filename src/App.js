@@ -9,7 +9,7 @@ import Library from "./components/Library";
 import CreateLib from "./components/CreateLib";
 import Libraries from "./components/Libraries";
 import Upload from "./components/Upload";
-import EditUser from '../components/EditUser'
+import EditUser from './components/EditUser'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
