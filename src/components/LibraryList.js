@@ -1,11 +1,24 @@
 import FlatList from 'flatlist-react';
 import card_img from "../card.jpg";
+import req from '../api/user_req'
+import { useNavigate } from 'react-router-dom';
 
 
 const LibraryList = (props) => {
 
-    const fetchEachLibrary = (index) => {
-        console.log(index)
+    const navigate = useNavigate();
+
+    const fetchEachLibrary = async (index) => {
+        const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("user_id");
+    
+        try {
+          const res = await req.get(`/${user_id}/library/${index}/`, {headers: {"Authorization": `Token ${token}`}})
+          console.log(res.data);
+          navigate('/libraries', {state: res.data})
+        } catch (e) {
+          console.log(e)
+        }
     }
 
     const renderLibrary = (library, idx) => {
