@@ -9,7 +9,8 @@ import Library from "./components/Library";
 import CreateLib from "./components/CreateLib";
 import Libraries from "./components/Libraries";
 import Upload from "./components/Upload";
-import EditUser from './components/EditUser'
+import EditUser from './components/EditUser';
+import EachLibrary from "./components/EachLibrary";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -31,7 +32,11 @@ function App() {
           <Route path="Libraries" element={<Libraries />} />
           <Route path="upload" element={<Upload />} />
           <Route path="edituser" element={<EditUser />} />
+          <Route path="eachlibrary" element={<EachLibrary />} />
 
+
+
+          
         </Route>
       </Routes>
     </BrowserRouter>

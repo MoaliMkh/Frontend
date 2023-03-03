@@ -15,7 +15,7 @@ const LibraryList = (props) => {
         try {
           const res = await req.get(`/${user_id}/library/${index}/`, {headers: {"Authorization": `Token ${token}`}})
           console.log(res.data);
-          navigate('/libraries', {state: res.data})
+          navigate('/eachlibrary', {state: res.data})
         } catch (e) {
           console.log(e)
         }
