@@ -5,24 +5,25 @@ import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 import { FileUpload } from "primereact/fileupload";
 
-import axios from "axios";
+import req from "../api/user_req";
 import { useState } from "react";
+import { useAlert } from "react-alert";
 
 function Upload() {
   const [fileState, setFileState] = useState(null);
+  const alert = useAlert();
 
 
-  const onClickHandler = () => {
-
-
+  const onClickHandler = async () => {
     const data = new FormData()
-    data.append('file', fileState)
-    console.log(data)
-    axios.post("http://localhost:8000/upload", data, { 
-       // receive two    parameter endpoint url ,form data
-      }).then(res => { // then print response status
-        console.log(res.statusText)
-      })
+    const user_id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token");
+    const library_id = localStorage.getItem("library_id")
+    data.append('content', fileState)
+    // const data = {"content": formData}
+    const response = await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+    console.log(response)
+    alert.show('فایل با موفقیت بارگذاری شد')
 }
 
 
