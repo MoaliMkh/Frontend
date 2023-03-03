@@ -14,11 +14,12 @@ function EditUser() {
 
 
   const [passwordEquality, setPasswordEquality] = useState(true);
-  const [otherPartsVisibility, setOtherPartsVisibility] = useState(true);
+  const [otherPartsVisibility, setOtherPartsVisibility] = useState(false);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [secondPassword, setSecondPassword] = useState("");
+  const [phoneNum, setPhoneNum] = useState("");
+  const [newPassword, setNewPassword] = useState("");
 
 
 
@@ -36,27 +37,26 @@ function EditUser() {
     }
   }
 
-  const checkPasswordAuth = (password) => {
+  const checkPasswordAuth = () => {
     const realPassword = localStorage.getItem("password");
     if (password === realPassword){ 
       setOtherPartsVisibility(true)
     }
     else{
-      setOtherPartsVisibility(true)
+      setOtherPartsVisibility(false)
     }
   }
 
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    const user_id = localStorage.getItem("user_id");
+    const token = localStorage.getItem("token")
+
     const data = { username, password }
     if (passwordEquality){
       try {
-        const res = await req.post('/register/', data)
-        const {token} = res.data || {};
-        const user_id = res.data.user.id
-        localStorage.setItem("user_id", user_id);
-        localStorage.setItem("token", token);
+        const res = await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
         alert.show('حساب کاربری شما با موفقیت ساخته شد')
         navigate('/signupsuccess')
       } catch (e) {
@@ -81,12 +81,12 @@ function EditUser() {
   const transStyle = {
     backgroundColor:"#595B60",
     opacity: 0.94,
-    width: '25%', 
+    width: '60%', 
+    height: '80%',
     marginLeft: 'auto',  
     marginRight: 'auto',
     marginTop: '5%',  
-    borderRadius: 10,
-    height: 500
+    borderRadius: 10
   };
 
   const inputFieldStyle = {
@@ -107,16 +107,32 @@ function EditUser() {
           <form class="row">
             <div class="input-field col s12">
               <input type="password" id="password1" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
-              placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}}></input>
+              placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}} onBlur={checkPasswordAuth}></input>
             </div>
           </form>
 
           {otherPartsVisibility ? 
           <div>
+
                   <form class="row">
                      <div class="input-field col s12">
-                       <input type="phone" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                       placeholder="شماره تلفن همراه" value={secondPassword} required onChange={(event) => {setSecondPassword(event.target.value)}}></input>
+                       <input type="email" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                       placeholder="ایمیل" value={username} required onChange={(event) => {setUsername(event.target.value)}}></input>
+                     </div>
+                   </form>
+
+
+                  <form class="row">
+                     <div class="input-field col s12">
+                       <input type="phone" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                       placeholder="شماره تلفن همراه" value={phoneNum} required onChange={(event) => {setPhoneNum(event.target.value)}}></input>
+                     </div>
+                   </form>
+
+                   <form class="row">
+                     <div class="input-field col s12">
+                       <input type="password" id="password2" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                       placeholder="رمز عبور جدید" value={newPassword} required onChange={(event) => {setNewPassword(event.target.value)}}></input>
                      </div>
                    </form>
          
@@ -133,7 +149,7 @@ function EditUser() {
          
                      <Link to='/signupsuccess'>
                      <button onClick={onSubmit} type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
-                         ثبت‌نام
+                      ثبت تغییرات
                      </button>
                      </Link>
          
