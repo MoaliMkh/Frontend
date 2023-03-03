@@ -8,11 +8,12 @@ import AboutUs from "./components/AboutUs";
 import Library from "./components/Library";
 import CreateLib from "./components/CreateLib";
 import Libraries from "./components/Libraries";
-import Upload from "./components/upload";
+import Upload from "./components/Upload";
+import EditUser from '../components/EditUser'
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { locale, addLocale, updateLocaleOption, updateLocaleOptions, localeOption, localeOptions } from 'primereact/api';
+// import { locale, addLocale, updateLocaleOption, updateLocaleOptions, localeOption, localeOptions } from 'primereact/api';
 
 
 function App() {
@@ -29,6 +30,8 @@ function App() {
           <Route path="CreateLib" element={<CreateLib />} />
           <Route path="Libraries" element={<Libraries />} />
           <Route path="upload" element={<Upload />} />
+          <Route path="edituser" element={<EditUser />} />
+
         </Route>
       </Routes>
     </BrowserRouter>
