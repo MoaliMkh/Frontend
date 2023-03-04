@@ -21,11 +21,15 @@ function Upload() {
     const token = localStorage.getItem("token");
     const library_id = localStorage.getItem("library_id")
     data.append('content', fileState)
-    // const data = {"content": formData}
-    const response = await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-    console.log("Upload Response", response)
-    alert.show('فایل با موفقیت بارگذاری شد')
-    navigate('/Libraries')
+    try{
+      const response = await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+      console.log("Upload Response", response)
+      alert.show('فایل با موفقیت بارگذاری شد')
+      navigate('/Libraries')
+    }
+    catch(e){
+      alert.show('بارگذاری فایل، با خطا مواجه شد')
+    }
 }
   const myStyle = {
     backgroundImage: `url(${back_img})`,
@@ -78,7 +82,7 @@ function Upload() {
 
       {/* <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/> */}
 
-      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full" style={{marginTop: 10, marginLeft: '42%', width: '15%', height: '5%', textAlign: 'center', fontSize: '50%'}} onClick={onClickHandler}>بارگذاری</button> 
+      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full w-auto text-base" style={{marginLeft: '42', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
 
 
       </div>
