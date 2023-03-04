@@ -13,11 +13,10 @@ const LibraryList = (props) => {
         const user_id = localStorage.getItem("user_id");
         localStorage.setItem("library_id", index)
 
-    
         try {
           const res = await req.get(`/${user_id}/library/${index}/`, {headers: {"Authorization": `Token ${token}`}})
-          console.log(res.data);
-          navigate('/upload', {state: res.data})
+          localStorage.setItem("each_lib", res.data)
+          navigate('/upload')
         } catch (e) {
           console.log(e)
         }

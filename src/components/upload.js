@@ -1,6 +1,6 @@
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 import { FileUpload } from "primereact/fileupload";
@@ -12,6 +12,7 @@ import { useAlert } from "react-alert";
 function Upload() {
   const [fileState, setFileState] = useState(null);
   const alert = useAlert();
+  const navigate = useNavigate();
 
 
   const onClickHandler = async () => {
@@ -22,13 +23,10 @@ function Upload() {
     data.append('content', fileState)
     // const data = {"content": formData}
     const response = await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-    console.log(response)
+    console.log("Upload Response", response)
     alert.show('فایل با موفقیت بارگذاری شد')
+    navigate('/Libraries')
 }
-
-
-  const { state } = useLocation();
-  console.log(state);
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -53,18 +51,8 @@ function Upload() {
   };
 
   const onChangeHandler = ({files}) => {
-  
-      // console.log(event.target.files[0])
-      // setFileState(event.target.files[0])
       const [file] = files;
-      setFileState(file)
-      onChangeHandler()
-      // const fileReader = new FileReader();
-      // fileReader.onload = (e) => {
-      //     console.log(e.target.result)
-      //     onClickHandler(e.target.result);
-      // };
-      // fileReader.readAsDataURL(file);
+      setFileState(file);
     }
 
   return (
@@ -77,16 +65,20 @@ function Upload() {
           بارگذاری فایل
         </p>
         <br />
+
+        <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
         <FileUpload 
         customUpload={true}
-        mode="basic"
+        mode="advanced"
         auto={true}
         uploadHandler={onChangeHandler}
         name="uploader"          />
+        </div>
+
 
       {/* <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/> */}
 
-      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full" style={{marginTop: 10, marginLeft: '38%', width: '25%', height: '10%'}} onClick={onClickHandler}>بارگذاری</button> 
+      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full" style={{marginTop: 10, marginLeft: '42%', width: '15%', height: '5%', textAlign: 'center', fontSize: '50%'}} onClick={onClickHandler}>بارگذاری</button> 
 
 
       </div>

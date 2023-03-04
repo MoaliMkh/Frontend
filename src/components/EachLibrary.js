@@ -1,14 +1,10 @@
 import "./Library.css";
 import back_img from "../LibBackground.png";
-import { useState } from "react";
 import contentino from "../contentino.png";
 import LibraryList from "./LibraryList";
-import { useLocation } from "react-router-dom";
 
 function EachLibrary() {
-  const [search, setSearch] = useState("");
-  const {state} = useLocation();
-  console.log(state)
+  const each_lib = localStorage.getItem("each_lib")
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -50,7 +46,7 @@ function EachLibrary() {
         </p>
 
         <div style={inputFieldStyle}>
-        <LibraryList libList={state}/>
+        <LibraryList libList={each_lib}/>
         </div>
 
         

@@ -15,8 +15,8 @@ function Library() {
 
     try {
       const res = await req.get(`/${user_id}/library/`, {headers: {"Authorization": `Token ${token}`}})
-      console.log(res.data);
-      navigate('/libraries', {state: res.data})
+      localStorage.setItem("all_libs", JSON.stringify(res.data))
+      navigate('/libraries')
     } catch (e) {
       console.log(e)
     }
