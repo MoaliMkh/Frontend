@@ -79,13 +79,14 @@ function Upload() {
         <br />
         <FileUpload 
         customUpload={true}
+        mode="basic"
         auto={true}
         uploadHandler={onChangeHandler}
         name="uploader"          />
 
       {/* <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/> */}
 
-      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={onClickHandler}>بارگذاری</button> 
+      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full" style={{marginTop: 10, marginLeft: '38%', width: '25%', height: '10%'}} onClick={onClickHandler}>بارگذاری</button> 
 
 
       </div>
