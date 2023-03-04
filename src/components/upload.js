@@ -1,6 +1,6 @@
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 
 import { FileUpload } from "primereact/fileupload";
@@ -78,9 +78,6 @@ function Upload() {
         uploadHandler={onChangeHandler}
         name="uploader"          />
         </div>
-
-
-      {/* <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/> */}
 
       <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full w-auto text-base" style={{marginLeft: '42', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
 
