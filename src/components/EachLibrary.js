@@ -1,7 +1,7 @@
 import "./Library.css";
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
-import LibraryList from "./LibraryList";
+import ContentList from "./ContentList";
 import { useNavigate } from "react-router-dom";
 
 function EachLibrary() {
@@ -49,7 +49,7 @@ function EachLibrary() {
         </p>
 
         <div style={inputFieldStyle}>
-        <LibraryList libList={each_lib}/>
+        <ContentList libList={each_lib}/>
         </div>
         <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center w-auto text-base" style={{marginLeft: '35%', marginBottom: '5%'}} onClick={() => {navigate('/upload')}}>
           <span>بارگذاری محتوا در این کتابخانه</span>

@@ -22,6 +22,24 @@ const LibraryList = (props) => {
         }
     }
 
+
+    const deleteEachLibrary = async (index) => {
+        const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("user_id");
+        localStorage.setItem("library_id", index)
+
+        try {
+          const res = await req.get(`/${user_id}/library/${index}/file/`, {headers: {"Authorization": `Token ${token}`}})
+          localStorage.setItem("each_lib", JSON.stringify(res.data))
+          navigate('/eachlibrary')
+        } catch (e) {
+          console.log(e)
+        }
+
+        /////// TODO
+    }
+
+
     const renderLibrary = (library, idx) => {
     return (
 
@@ -35,9 +53,13 @@ const LibraryList = (props) => {
             <div class="px-6 py-3 bg-zinc-300">
                 <div class="font-bold text-xl mb-2">{library.name}</div>
             </div>
-            <div class="px-6 bg-zinc-300">
+            <div class="px-6 bg-zinc-300 flex">
                 <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                 {library.content_type}
+                </span>
+
+                <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" onClick={() => {deleteEachLibrary(idx)}}>
+                حذف
                 </span>
             </div>
         </div>
