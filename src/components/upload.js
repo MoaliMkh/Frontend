@@ -52,10 +52,19 @@ function Upload() {
     overflow: "auto",
   };
 
-  const onChangeHandler = (event) => {
+  const onChangeHandler = ({files}) => {
   
-      console.log(event.target.files[0])
-      setFileState(event.target.files[0])
+      // console.log(event.target.files[0])
+      // setFileState(event.target.files[0])
+      const [file] = files;
+      setFileState(file)
+      onChangeHandler()
+      // const fileReader = new FileReader();
+      // fileReader.onload = (e) => {
+      //     console.log(e.target.result)
+      //     onClickHandler(e.target.result);
+      // };
+      // fileReader.readAsDataURL(file);
     }
 
   return (
@@ -68,11 +77,13 @@ function Upload() {
           بارگذاری فایل
         </p>
         <br />
-        {/* <FileUpload 
-        uploadHandler={invoiceUploadHandler}
-        name="uploader"          /> */}
+        <FileUpload 
+        customUpload={true}
+        auto={true}
+        uploadHandler={onChangeHandler}
+        name="uploader"          />
 
-      <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/>
+      {/* <input type="file" name="file" onChange={onChangeHandler} style={{backgroundColor: 'red', height: '10%'}}/> */}
 
       <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={onClickHandler}>بارگذاری</button> 
 

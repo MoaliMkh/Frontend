@@ -144,13 +144,7 @@ function EditUser() {
                       ثبت تغییرات
                      </button>
                      </Link>
-         
-                     <div style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row'}}>
-         
-                         <p class="text-center medium-small text-sm text-sky-400" style={{flex: '100%'}}>
-                           <Link to="/login">حساب کاربری دارید؟ ورود</Link>
-                         </p>
-                     </div>            
+                  
                    </div>
          
                    <div style={{width: '100%', height: 1, backgroundColor: '#2F3233', marginTop: 5}}>

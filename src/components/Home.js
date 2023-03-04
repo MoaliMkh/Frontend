@@ -15,14 +15,16 @@ import Linkedin from '../linkedin.png'
 import Twitter from '../twitter.png'
 import Telegram from '../telegram.png'
 import Line from '../line.png'
+import { useNavigate } from 'react-router-dom';
 
 function Home() {
+    const navigate = useNavigate()
   
   return (
     <div>
         <div className='navbar'>
 
-            <button><img alt="salam" className='login' src={login}/></button>
+            <button><img alt="salam" className='login' src={login} onClick={() => {navigate('/login')}}/></button>
             <a className='menuItem' href='#contact'>تماس با ما</a>
             <a className='menuItem' href='#benefits'>مزیت‌ها</a>
             <a className='menuItem' href='#features'>قابلیت‌ها</a>
