@@ -1,14 +1,14 @@
 import FlatList from 'flatlist-react';
 import card_img from "../card.jpg";
 import req from '../api/user_req'
-import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
+import no_content from '../no-content.png'
+
 
 
 const AttachmentList = (props) => {
 
-    const navigate = useNavigate();
     const alert = useAlert();
 
     const [libraryList, setLibraryList] = useState(props.libList)
@@ -87,7 +87,13 @@ const AttachmentList = (props) => {
             <FlatList
             list={libraryList}
             renderItem={renderAttachments}
-            renderWhenEmpty={() => <div style={{color: 'red', textAlign: 'center'}}>پیوستی برای نمایش وجود ندارد</div>}
+            renderWhenEmpty={() => 
+            <div style={{color: 'red', textAlign: 'center'}}>
+                <span>
+                پیوستی برای نمایش وجود ندارد
+                </span>    
+                <img src={no_content} alt="salam" style={{marginLeft: '40%'}}/>
+            </div>}
             display={{
                 grid: true,
               }}

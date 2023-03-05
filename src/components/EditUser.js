@@ -2,6 +2,7 @@ import './Signup.css';
 import back_img from '../Background.png'
 import contentino from '../contentino.png'
 
+
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import req from '../api/login_signup_req';

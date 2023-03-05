@@ -4,6 +4,8 @@ import req from '../api/user_req'
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
+import no_content from '../no-content.png'
+
 
 
 const LibraryList = (props) => {
@@ -85,8 +87,13 @@ const LibraryList = (props) => {
             <FlatList
             list={libraryList}
             renderItem={renderLibrary}
-            renderWhenEmpty={() => <div style={{color: 'red', textAlign: 'center'}}>کتابخانه‌ای برای نمایش وجود ندارد</div>}
-            display={{
+            renderWhenEmpty={() => 
+                <div style={{color: 'red', textAlign: 'center'}}>
+                    <span>
+                    کتابخانه‌ای برای نمایش وجود ندارد
+                    </span>    
+                    <img src={no_content} alt="salam" style={{marginLeft: '40%'}}/>
+                </div>}            display={{
                 grid: true,
               }}
             gridGap="0.005%"

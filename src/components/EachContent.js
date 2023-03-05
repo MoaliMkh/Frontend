@@ -51,7 +51,7 @@ function EachContent() {
         <div style={inputFieldStyle}>
         <AttachmentList libList={each_content}/>
         </div>
-        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center w-auto text-base" style={{marginLeft: '35%', marginBottom: '5%'}} onClick={() => {navigate('/uploadattachment')}}>
+        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center w-auto text-base" style={{marginLeft: '37%', marginBottom: '5%'}} onClick={() => {navigate('/uploadattachment')}}>
           <span>بارگذاری پیوست در این محتوا</span>
         </button>
 
