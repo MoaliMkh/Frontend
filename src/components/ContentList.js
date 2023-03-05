@@ -15,18 +15,18 @@ const ContentList = (props) => {
     const [libListChanged, setLibListChanged] = useState(false)
 
     const fetchEachContent = async (index) => {
-        // const token = localStorage.getItem("token");
-        // const user_id = localStorage.getItem("user_id");
-        // const library_id = localStorage.getItem("library_id");
+        const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("user_id");
+        const library_id = localStorage.getItem("library_id");
 
 
-        // try {
-        //   const res = await req.delete(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
-        //   alert.show('محتوا با موفقیت حذف شد')
-        //   navigate('/eachlibrary')
-        // } catch (e) {
-        //   console.log(e)
-        // }
+        try {
+          const res = await req.get(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
+          console.log(res.data)
+          alert.show('در حال بارگیری محتوا')
+        } catch (e) {
+          console.log(e)
+        }
     }
 
 
@@ -51,8 +51,6 @@ const ContentList = (props) => {
         } catch (e) {
           console.log(e)
         }
-
-        /////// TODO
     }
 
 

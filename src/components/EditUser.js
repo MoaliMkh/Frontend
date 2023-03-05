@@ -101,8 +101,15 @@ function EditUser() {
           <form class="row">
             <div class="input-field col s12">
               <input type="password" id="password1" class="text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" 
-              placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}} onBlur={checkPasswordAuth}></input>
+              placeholder="رمز عبور" value={password} required onChange={(event) => {setPassword(event.target.value)}}></input>
             </div>
+
+            {!otherPartsVisibility ? 
+            <button onClick={checkPasswordAuth} type="button" class="text-white w-full bg-black hover:ring-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 mb-2 focus:outline-none">
+            تایید رمز عبور
+        </button>
+            : null}
+
           </form>
 
           {otherPartsVisibility ? 
