@@ -1,6 +1,7 @@
 import FlatList from 'flatlist-react';
 import card_img from "../card.jpg";
-import req from '../api/user_req'
+import req from '../api/user_req';
+import download_req from '../api/download_req';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
@@ -14,17 +15,23 @@ const ContentList = (props) => {
 
     const [libraryList, setLibraryList] = useState(props.libList)
     const [libListChanged, setLibListChanged] = useState(false)
+    const [downloaded, setDownloaded] = useState(false)
 
-    const downloadEachContent = async (index) => {
+    const downloadEachContent = async (index, name) => {
         const token = localStorage.getItem("token");
         const user_id = localStorage.getItem("user_id");
         const library_id = localStorage.getItem("library_id");
 
-
         try {
-          const res = await req.get(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
+          await req.get(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
+          name = name.split(' ').join('_')
+          console.log(`${name}`)
+          const res = await download_req.get(`/${name}`)
           console.log(res)
+
+          
           alert.show('در حال بارگیری محتوا')
+          setDownloaded(true)
         } catch (e) {
           console.log(e)
         }
@@ -102,9 +109,10 @@ const ContentList = (props) => {
             </div>
 
             <div class=" bg-zinc-300 flex" >
-                <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachContent(idx)}}>
+                <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachContent(idx, library.name)}}>
                 بارگیری
                 </span>
+                {downloaded ? <a href={'localhost:8000/static/' + library.name.split(' ').join('_')} class="text-sm" target="_blank" rel="noopener noreferrer">نمایش فایل </a>: null}
             </div>
         </div>
     </li>

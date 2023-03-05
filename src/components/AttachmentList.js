@@ -15,17 +15,17 @@ const AttachmentList = (props) => {
     const [libListChanged, setLibListChanged] = useState(false)
 
     const downloadEachAttachment = async (index) => {
-        // const token = localStorage.getItem("token");
-        // const user_id = localStorage.getItem("user_id");
-        // localStorage.setItem("library_id", index)
+        const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("user_id");
+        const content_id = localStorage.getItem("content_id");
 
-        // try {
-        //   const res = await req.get(`/${user_id}/library/${index}/file/`, {headers: {"Authorization": `Token ${token}`}})
-        //   localStorage.setItem("each_lib", JSON.stringify(res.data))
-        //   navigate('/eachlibrary')
-        // } catch (e) {
-        //   console.log(e)
-        // }
+        try {
+          const res = await req.get(`/${user_id}/file/${content_id}/attachment/${index}/`, {headers: {"Authorization": `Token ${token}`}})
+          alert.show('پیوست با موفقیت دانلود شد', {type: 'success'})
+          //   navigate('/eachlibrary')
+        } catch (e) {
+          console.log(e)
+        }
     }
 
     const deleteEachAttachment = async (index) => {
