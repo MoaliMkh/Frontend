@@ -23,11 +23,11 @@ function UploadAttachment() {
     data.append('name', name)
     try{
       await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-      alert.show('پیوست با موفقیت بارگذاری شد')
+      alert.show('پیوست با موفقیت بارگذاری شد', {type: 'success'})
       navigate('/eachlibrary')
     }
     catch(e){
-      alert.show('بارگذاری پیوست، با خطا مواجه شد')
+      alert.show('بارگذاری پیوست، با خطا مواجه شد', {type: 'error'})
     }
 }
   const myStyle = {

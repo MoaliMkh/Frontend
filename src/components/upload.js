@@ -21,11 +21,11 @@ function Upload() {
     data.append('content', fileState)
     try{
       await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-      alert.show('فایل با موفقیت بارگذاری شد')
+      alert.show('فایل با موفقیت بارگذاری شد', {type: 'success'})
       navigate('/Libraries')
     }
     catch(e){
-      alert.show('بارگذاری فایل، با خطا مواجه شد')
+      alert.show('بارگذاری فایل، با خطا مواجه شد', {type: 'error'})
     }
 }
   const myStyle = {

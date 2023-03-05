@@ -59,7 +59,7 @@ function Signup() {
         localStorage.setItem("token", token);
         localStorage.setItem("password", password);
         setUniqueness(true)
-        alert.show('حساب کاربری شما با موفقیت ساخته شد')
+        alert.show('حساب کاربری شما با موفقیت ساخته شد' , {type: 'success'})
         navigate('/signupsuccess')
       } catch (e) {
         setUniqueness(false)

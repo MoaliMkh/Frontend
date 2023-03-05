@@ -22,7 +22,7 @@ function CreateLib() {
     try {
       const res = await req.post(`/${user_id}/library/`, data, {headers: {"Authorization": `Token ${token}`}})
       console.log(res.data);
-      alert.show('کتابخانه با موفقیت ساخته شد')
+      alert.show('کتابخانه با موفقیت ساخته شد', {type: 'success'})
       navigate('/library')
     } catch (e) {
       console.log(e)

@@ -44,7 +44,7 @@ function EditUser() {
     }
     else{
       setOtherPartsVisibility(false)
-      alert.show('رمز عبور نادرست است')
+      alert.show('رمز عبور نادرست است', {type: 'error'})
     }
   }
 
@@ -56,7 +56,7 @@ function EditUser() {
     const data = { "username": username, "new_password": newPassword, "phone_number": phoneNum, "password": password }
     try {
       await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
-      alert.show('تغییرات با موفقیت اعمال شد')
+      alert.show('تغییرات با موفقیت اعمال شد', {type: 'success'})
       navigate('/')
     } catch (e) {
       console.log(e)

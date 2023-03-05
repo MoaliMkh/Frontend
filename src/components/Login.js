@@ -37,7 +37,7 @@ function Login() {
       localStorage.setItem("password", password);
 
       setAuthorized(true)
-      alert.show('با موفقیت به حساب خود وارد شدید')
+      alert.show('با موفقیت به حساب خود وارد شدید', {type: 'success'})
       navigate('/library')
     } catch (e) {
       setAuthorized(false)

@@ -19,7 +19,7 @@ const Layout = () => {
       console.log(res.data);
       localStorage.removeItem("token")
       localStorage.removeItem("user_id")
-      alert.show('با موفقیت از حساب خود خارج شدید')
+      alert.show('با موفقیت از حساب خود خارج شدید', {type: 'success'})
       navigate('/login')
     } catch (e) {
       console.log(e)

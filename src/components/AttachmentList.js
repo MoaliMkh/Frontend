@@ -42,7 +42,7 @@ const AttachmentList = (props) => {
           localStorage.setItem("all_attachs", JSON.stringify(res.data))
           setLibraryList(JSON.parse(localStorage.getItem("all_attachs")))
           setLibListChanged(false)
-          alert.show('پیوست با موفقیت حذف شد')
+          alert.show('پیوست با موفقیت حذف شد', {type: 'success'})
         } catch (e) {
           console.log(e)
         }

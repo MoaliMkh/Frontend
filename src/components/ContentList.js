@@ -64,7 +64,7 @@ const ContentList = (props) => {
           setLibraryList(JSON.parse(localStorage.getItem("each_lib")))
           setLibListChanged(false)
           
-          alert.show('محتوا با موفقیت حذف شد')
+          alert.show('محتوا با موفقیت حذف شد', {type: 'success'})
           navigate('/eachlibrary')
         } catch (e) {
           console.log(e)

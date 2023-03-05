@@ -44,7 +44,7 @@ const LibraryList = (props) => {
           localStorage.setItem("all_libs", JSON.stringify(res.data))
           setLibraryList(JSON.parse(localStorage.getItem("all_libs")))
           setLibListChanged(false)
-          alert.show('کتابخانه با موفقیت حذف شد')
+          alert.show('کتابخانه با موفقیت حذف شد', {type: 'success'})
         } catch (e) {
           console.log(e)
         }

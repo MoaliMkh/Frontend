@@ -13,7 +13,7 @@ const options = {
   timeout: 4000,
   offset: '30px',
   // you can also just use 'scale'
-  transition: transitions.SCALE
+  transition: transitions.SCALE,
 }
 root.render(
   <React.StrictMode>
