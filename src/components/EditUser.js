@@ -43,6 +43,7 @@ function EditUser() {
     }
     else{
       setOtherPartsVisibility(false)
+      alert.show('رمز عبور نادرست است')
     }
   }
 

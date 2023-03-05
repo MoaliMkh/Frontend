@@ -7,9 +7,10 @@ import req from "../api/user_req";
 import { useState } from "react";
 import { useAlert } from "react-alert";
 
-function Upload() {
+function UploadAttachment() {
   const [fileState, setFileState] = useState(null);
   const alert = useAlert();
+  const [name, setName] = useState("")
   const navigate = useNavigate();
 
 
@@ -17,15 +18,16 @@ function Upload() {
     const data = new FormData()
     const user_id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
-    const library_id = localStorage.getItem("library_id")
+    const content_id = localStorage.getItem("content_id")
     data.append('content', fileState)
+    data.append('name', name)
     try{
-      await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-      alert.show('فایل با موفقیت بارگذاری شد')
-      navigate('/Libraries')
+      await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+      alert.show('پیوست با موفقیت بارگذاری شد')
+      navigate('/eachlibrary')
     }
     catch(e){
-      alert.show('بارگذاری فایل، با خطا مواجه شد')
+      alert.show('بارگذاری پیوست، با خطا مواجه شد')
     }
 }
   const myStyle = {
@@ -63,11 +65,13 @@ function Upload() {
           style={{ color: "white", textAlign: "center", marginBottom: 20 }}
           class="w-full"
         >
-          بارگذاری فایل
+          بارگذاری پیوست
         </p>
         <br />
-
+        <input type="text" class="text-right bg-gray-50 border center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" style={{width: '50%', marginLeft: '27%'}}
+              placeholder="نام پیوست" required onChange={(event) => {setName(event.target.value)}}></input>
         <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
+
         <FileUpload 
         customUpload={true}
         mode="advanced"
@@ -91,4 +95,4 @@ function Upload() {
   );
 }
 
-export default Upload;
+export default UploadAttachment;

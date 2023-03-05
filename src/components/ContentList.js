@@ -14,7 +14,7 @@ const ContentList = (props) => {
     const [libraryList, setLibraryList] = useState(props.libList)
     const [libListChanged, setLibListChanged] = useState(false)
 
-    const fetchEachContent = async (index) => {
+    const downloadEachContent = async (index) => {
         const token = localStorage.getItem("token");
         const user_id = localStorage.getItem("user_id");
         const library_id = localStorage.getItem("library_id");
@@ -22,11 +22,28 @@ const ContentList = (props) => {
 
         try {
           const res = await req.get(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
-          console.log(res.data)
+          console.log(res)
           alert.show('در حال بارگیری محتوا')
         } catch (e) {
           console.log(e)
         }
+    }
+
+    const fetchEachContent = async (index) => {
+        const token = localStorage.getItem("token");
+        const user_id = localStorage.getItem("user_id");
+        localStorage.setItem("content_id", index)
+
+
+        try {
+            const res = await req.get(`/${user_id}/file/${index}/attachment/`, {headers: {"Authorization": `Token ${token}`}})
+            localStorage.setItem("each_content", JSON.stringify(res.data))
+            navigate('/eachcontent')
+        } catch (e) {
+          console.log(e)
+        }
+
+        ////TODO
     }
 
 
@@ -58,7 +75,7 @@ const ContentList = (props) => {
     return (
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
-        <div class="max-w-sm rounded overflow-hidden shadow-lg"  >
+        <div class=" w-fit rounded overflow-hidden shadow-lg"  >
             <div onClick={() => {fetchEachContent(idx)}}>
                 <img
                     class="w-full"
@@ -66,7 +83,7 @@ const ContentList = (props) => {
                     alt="Sunset in the mountains"
                 ></img>
                 <div class="px-6 py-3 bg-zinc-300">
-                    <div class="font-bold text-xl mb-2">{library.name}</div>
+                    <div class="text-xl mb-2">{library.name}</div>
                 </div>
             </div>
 
@@ -77,6 +94,12 @@ const ContentList = (props) => {
 
                 <span class="inline-block bg-zinc-400 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2" onClick={() => {deleteEachContent(idx)}}>
                 حذف
+                </span>
+            </div>
+
+            <div class=" bg-zinc-300 flex" >
+                <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachContent(idx)}}>
+                بارگیری
                 </span>
             </div>
         </div>

@@ -11,10 +11,11 @@ import Libraries from "./components/Libraries";
 import Upload from "./components/Upload";
 import EditUser from './components/EditUser';
 import EachLibrary from "./components/EachLibrary";
+import UploadAttachment from "./components/UploadAttachment";
+import EachContent from "./components/EachContent";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// import { locale, addLocale, updateLocaleOption, updateLocaleOptions, localeOption, localeOptions } from 'primereact/api';
 
 
 function App() {
@@ -33,6 +34,11 @@ function App() {
           <Route path="upload" element={<Upload />} />
           <Route path="edituser" element={<EditUser />} />
           <Route path="eachlibrary" element={<EachLibrary />} />
+          <Route path="eachcontent" element={<EachContent />} />
+
+          <Route path="uploadattachment" element={<UploadAttachment />} />
+
+          
 
 
 
