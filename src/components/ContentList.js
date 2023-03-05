@@ -8,40 +8,36 @@ import { useState } from 'react';
 import no_content from '../no-content.png'
 
 
+
 const ContentList = (props) => {
 
     const navigate = useNavigate();
     const alert = useAlert();
+    var fileDownload = require('js-file-download');
+
 
     const [libraryList, setLibraryList] = useState(props.libList)
     const [libListChanged, setLibListChanged] = useState(false)
-    const [downloaded, setDownloaded] = useState(false)
 
     const downloadEachContent = async (index, name) => {
-        const token = localStorage.getItem("token");
-        const user_id = localStorage.getItem("user_id");
-        const library_id = localStorage.getItem("library_id");
+        name = name.split(' ').join('_')
+        download_req.get(`/${name}`, { 
+            responseType: 'blob',
+        }).then(res => {
+            fileDownload(res.data, `${name}`);
+            alert.show('بارگیری محتوا موفقیت‌آمیز بود', {type: "success"})
+            console.log(res);
+        }).catch(err => {
+            console.log(err);
+            alert.show('خطا هنگام بارگیری محتوا', {type: "error"})
 
-        try {
-          await req.get(`/${user_id}/library/${library_id}/file/${index}/`, {headers: {"Authorization": `Token ${token}`}})
-          name = name.split(' ').join('_')
-          console.log(`${name}`)
-          const res = await download_req.get(`/${name}`)
-          console.log(res)
-
-          
-          alert.show('در حال بارگیری محتوا')
-          setDownloaded(true)
-        } catch (e) {
-          console.log(e)
-        }
+        })
     }
 
     const fetchEachContent = async (index) => {
         const token = localStorage.getItem("token");
         const user_id = localStorage.getItem("user_id");
         localStorage.setItem("content_id", index)
-
 
         try {
             const res = await req.get(`/${user_id}/file/${index}/attachment/`, {headers: {"Authorization": `Token ${token}`}})
@@ -50,8 +46,6 @@ const ContentList = (props) => {
         } catch (e) {
           console.log(e)
         }
-
-        ////TODO
     }
 
 
@@ -112,7 +106,6 @@ const ContentList = (props) => {
                 <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachContent(idx, library.name)}}>
                 بارگیری
                 </span>
-                {downloaded ? <a href={'localhost:8000/static/' + library.name.split(' ').join('_')} class="text-sm" target="_blank" rel="noopener noreferrer">نمایش فایل </a>: null}
             </div>
         </div>
     </li>

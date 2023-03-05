@@ -20,7 +20,8 @@ function UploadAttachment() {
     const token = localStorage.getItem("token");
     const content_id = localStorage.getItem("content_id")
     data.append('content', fileState)
-    data.append('name', name)
+    // console.log(fileState.name.split(' ').join('_'))
+    data.append('name', fileState.name.split(' ').join('_'))
     try{
       await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
       alert.show('پیوست با موفقیت بارگذاری شد', {type: 'success'})

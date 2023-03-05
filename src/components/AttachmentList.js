@@ -3,29 +3,33 @@ import card_img from "../card.jpg";
 import req from '../api/user_req'
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
-import no_content from '../no-content.png'
+import no_content from '../no-content.png';
+import download_req
+ from '../api/download_req';
 
 
 
 const AttachmentList = (props) => {
 
     const alert = useAlert();
+    var fileDownload = require('js-file-download')
 
     const [libraryList, setLibraryList] = useState(props.libList)
     const [libListChanged, setLibListChanged] = useState(false)
 
-    const downloadEachAttachment = async (index) => {
-        const token = localStorage.getItem("token");
-        const user_id = localStorage.getItem("user_id");
-        const content_id = localStorage.getItem("content_id");
+    const downloadEachAttachment = async (index, name) => {
 
-        try {
-          const res = await req.get(`/${user_id}/file/${content_id}/attachment/${index}/`, {headers: {"Authorization": `Token ${token}`}})
-          alert.show('پیوست با موفقیت دانلود شد', {type: 'success'})
-          //   navigate('/eachlibrary')
-        } catch (e) {
-          console.log(e)
-        }
+        name = name.split(' ').join('_')
+        download_req.get(`/${name}`, { 
+            responseType: 'blob',
+        }).then(res => {
+            fileDownload(res.data, `${name}`);
+            alert.show('بارگیری پیوست موفقیت‌آمیز بود', {type: "success"})
+            console.log(res);
+        }).catch(err => {
+            alert.show('خطا هنگام بارگیری پیوست', {type: "error"})
+            console.log(err);
+        })
     }
 
     const deleteEachAttachment = async (index) => {
@@ -74,7 +78,7 @@ const AttachmentList = (props) => {
                 </span>
             </div>
             <div class=" bg-zinc-300 flex" >
-                <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachAttachment(idx)}}>
+                <span class="inline-block bg-slate-600 rounded-full px-3 py-1 text-sm font-semibold text-white mb-2" style={{marginLeft: '30%'}} onClick={() => {downloadEachAttachment(idx, library.name)}}>
                 بارگیری
                 </span>
             </div>
