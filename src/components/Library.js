@@ -4,6 +4,8 @@ import "./Library.css";
 import back_img from "../LibBackground.png";
 import contentino from "../contentino.png";
 import { useNavigate } from "react-router-dom";
+import SeeAllLibs from "../SeeAllLibs.png"
+import createLib from "../createLib.png";
 
 
 function Library() {
@@ -34,8 +36,8 @@ function Library() {
   };
 
   const transStyle = {
-    backgroundColor: "#595B60",
-    opacity: 0.94,
+    backgroundColor: "#262626",
+    opacity: 0.9,
     width: "70%",
     marginLeft: "auto",
     marginRight: "auto",
@@ -65,11 +67,13 @@ function Library() {
 
         <div class="s2 z-depth-6 card-panel" style={{marginRight: '15%', marginLeft: '20%'}}>
           <div style={inputFieldStyle}>
-            <div class="grid gap-6 mb-1 ml-1 md:grid-cols-1 justify-center items-start">
-              <span class="column" style={{width: '100%'}}>
+
+            <div class=" mb-1 ml-1 items-start flex flex-row justify-between">
+              <span class="column" style={{width: '100%', marginBottom: '1%', marginRight: '20%'}}>
+                <img src={createLib} alt="salam"/>
                 <Link to="/CreateLib">
                   <button
-                    class="bg-violet-300 hover:bg-violet-400 text-white px-4 py-1 rounded-full"
+                    class="bg-sky-700 hover:bg-sky-500 text-white px-4 py-1 rounded-full"
                     style={{
                       width: '100%',
                       height: '100%',
@@ -78,19 +82,22 @@ function Library() {
                     ایجاد کتابخانه جدید
                   </button>
                 </Link>
+
               </span>
 
               <span class="column" style={{width: '100%'}}>
+              <img src={SeeAllLibs} alt="salam"/>
+
                 <Link to="/Libraries">
                   <button
-                    class="bg-violet-300 hover:bg-violet-400 text-white px-8 py-1 rounded-full"
+                    class="bg-sky-700 hover:bg-sky-500 text-white px-8 py-1 rounded-full"
                     style={{
                       width: '100%',
                       height: '100%',
                     }}
                     onClick={onSubmit}
                   >
-                    مشاهده مجموعه کتابخانه‌ها
+                    مشاهده کتابخانه‌ها
                   </button>
                 </Link>
               </span>

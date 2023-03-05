@@ -13,6 +13,7 @@ import EditUser from './components/EditUser';
 import EachLibrary from "./components/EachLibrary";
 import UploadAttachment from "./components/UploadAttachment";
 import EachContent from "./components/EachContent";
+import UserPanel from "./components/UserPanel"
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -35,6 +36,8 @@ function App() {
           <Route path="edituser" element={<EditUser />} />
           <Route path="eachlibrary" element={<EachLibrary />} />
           <Route path="eachcontent" element={<EachContent />} />
+          <Route path="userpanel" element={<UserPanel />} />
+
 
           <Route path="uploadattachment" element={<UploadAttachment />} />
 
