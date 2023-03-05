@@ -4,6 +4,7 @@ import settingIcon from "../setting_icon.png";
 import logoutIcon from "../logout_icon.png";
 import contentIcon from "../content_icon.png";
 import req from '../api/login_signup_req'
+import home from '../home.png'
 import { useAlert } from "react-alert";
 
 const Layout = () => {
@@ -41,7 +42,7 @@ const Layout = () => {
                 to="/"
                 class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
-                <img src={userIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <img src={home} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
                 <p>خانه</p>
 
               </Link>
