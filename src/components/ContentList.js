@@ -74,6 +74,7 @@ const ContentList = (props) => {
 
     const renderContents = (library, idx) => {
     return (
+        
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
         <div class=" w-fit rounded overflow-hidden shadow-lg"  >
@@ -86,6 +87,8 @@ const ContentList = (props) => {
                 <div class="px-6 py-3 bg-zinc-300">
                     <div class="text-xl mb-2">{library.name}</div>
                 </div>
+                {libListChanged ? null : null}
+
             </div>
 
             <div class="px-6 bg-zinc-300 flex">

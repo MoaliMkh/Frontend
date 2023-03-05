@@ -55,7 +55,7 @@ function EditUser() {
     const token = localStorage.getItem("token");
     const data = { "username": username, "new_password": newPassword, "phone_number": phoneNum, "password": password }
     try {
-      const res = await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
+      await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
       alert.show('تغییرات با موفقیت اعمال شد')
       navigate('/')
     } catch (e) {

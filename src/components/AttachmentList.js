@@ -63,6 +63,8 @@ const AttachmentList = (props) => {
                 <div class="px-6 py-3 bg-zinc-300">
                     <div class="font-bold text-xl mb-2">{library.name}</div>
                 </div>
+                {libListChanged ? null : null}
+
             </div>
 
             <div class="px-6 bg-zinc-300 flex">

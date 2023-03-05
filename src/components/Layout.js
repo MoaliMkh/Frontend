@@ -38,6 +38,17 @@ const Layout = () => {
 
             <li style={{marginBottom: '70%', marginTop: '100%'}}>
               <Link
+                to="/"
+                class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <img src={userIcon} alt="vec1" style={{width: '60%', height: '10%', marginLeft: '18%'}}></img>
+                <p>خانه</p>
+
+              </Link>
+            </li>
+
+            <li style={{marginBottom: '70%'}}>
+              <Link
                 href="#"
                 class="flex-row items-center text-sm font-normal text-center text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
               >
