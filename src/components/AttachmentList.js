@@ -4,8 +4,7 @@ import req from '../api/user_req'
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
 import no_content from '../no-content.png';
-import download_req
- from '../api/download_req';
+import download_req from '../api/download_req';
 
 
 

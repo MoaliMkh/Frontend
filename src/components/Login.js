@@ -35,12 +35,18 @@ function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("user_id", user_id);
       localStorage.setItem("password", password);
+      localStorage.setItem("username", username);
+      localStorage.setItem("phone_number", "")
+
+
 
       setAuthorized(true)
       alert.show('با موفقیت به حساب خود وارد شدید', {type: 'success'})
       navigate('/library')
     } catch (e) {
       setAuthorized(false)
+      alert.show('خطا هنگام ورود', {type: 'error'})
+
       console.log(e)
     }
 

@@ -120,7 +120,7 @@ function EditUser() {
                   <form class="row">
                      <div class="input-field col s12">
                        <input type="email" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                       placeholder="ایمیل" value={username} required onChange={(event) => {setUsername(event.target.value)}}></input>
+                       placeholder="ایمیل" value={username} required onChange={(event) => {setUsername(event.target.value); localStorage.setItem("username", username)}}></input>
                      </div>
                    </form>
 
@@ -128,7 +128,7 @@ function EditUser() {
                   <form class="row">
                      <div class="input-field col s12">
                        <input type="phone" class=" text-right bg-gray-50 border w-full border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                       placeholder="شماره تلفن همراه" value={phoneNum} required onChange={(event) => {setPhoneNum(event.target.value)}}></input>
+                       placeholder="شماره تلفن همراه" value={phoneNum} required onChange={(event) => {setPhoneNum(event.target.value); localStorage.setItem("phone_number", phoneNum)}}></input>
                      </div>
                    </form>
 

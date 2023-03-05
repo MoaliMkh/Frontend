@@ -58,11 +58,14 @@ function Signup() {
         localStorage.setItem("user_id", user_id);
         localStorage.setItem("token", token);
         localStorage.setItem("password", password);
+        localStorage.setItem("username", username);
+        localStorage.setItem("phone_number", "")
         setUniqueness(true)
         alert.show('حساب کاربری شما با موفقیت ساخته شد' , {type: 'success'})
         navigate('/signupsuccess')
       } catch (e) {
         setUniqueness(false)
+        alert.show('خطا هنگام ساخت حساب' , {type: 'error'})
         console.log(e)
       }
     }
