@@ -14,7 +14,6 @@ function UploadAttachment() {
   const alert = useAlert();
   const [name, setName] = useState("")
   const navigate = useNavigate();
-
   const onClickHandler = async () => {
     const data = new FormData()
     const user_id = localStorage.getItem("user_id");
