@@ -57,8 +57,8 @@ const AttachmentList = (props) => {
     return (
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
-        <div class="max-w-sm rounded overflow-hidden shadow-lg"  >
-            <div onClick={() => {downloadEachAttachment(idx)}}>
+        <div class="w-fit rounded overflow-hidden shadow-lg"  >
+            <div>
                 <img
                     class="w-full"
                     src={card_img}
@@ -103,7 +103,7 @@ const AttachmentList = (props) => {
             display={{
                 grid: true,
               }}
-            gridGap="0.005%"
+            gridGap="0.8%"
             />
         </ul>
     )
