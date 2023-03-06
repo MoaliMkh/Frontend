@@ -6,6 +6,8 @@ import { FileUpload } from "primereact/fileupload";
 import req from "../api/user_req";
 import { useState } from "react";
 import { useAlert } from "react-alert";
+import upload_page from '../upload_page.png'
+
 
 function UploadAttachment() {
   const [fileState, setFileState] = useState(null);
@@ -68,8 +70,7 @@ function UploadAttachment() {
         >
           بارگذاری پیوست
         </p>
-        <br />
-        <input type="text" class="text-right bg-gray-50 border center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" style={{width: '50%', marginLeft: '27%'}}
+        <input type="text" class="text-right bg-gray-50 border center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" style={{width: '50%', marginLeft: '27%',marginTop: '5%'}}
               placeholder="نام پیوست" required onChange={(event) => {setName(event.target.value)}}></input>
         <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
 
@@ -81,8 +82,8 @@ function UploadAttachment() {
         name="uploader"          />
         </div>
 
-      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full w-auto text-base" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
-
+      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white text-3xl px-4 rounded-lg w-auto" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
+      <img src={upload_page} alt="salam" style={{marginLeft: 0, marginBottom: 0, height: '30%'}}/>
 
       </div>
       <div style={{ position: "absolute", bottom: 0, height: "10%" }}>

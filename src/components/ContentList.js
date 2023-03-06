@@ -5,7 +5,7 @@ import download_req from '../api/download_req';
 import { useNavigate } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
-import no_content from '../no-content.png'
+import no_content from '../no_content.png';
 
 
 
@@ -119,11 +119,11 @@ const ContentList = (props) => {
             list={libraryList}
             renderItem={renderContents}
             renderWhenEmpty={() => 
-                <div style={{color: 'red', textAlign: 'center'}}>
-                    <span>
-                    محتوایی برای نمایش وجود ندارد
+                <div style={{ textAlign: 'center'}}>
+                    <span class="rounded-lg bg-rose-700 text-white text-4xl" style={{ padding: '1%'}}>
+                    محتوایی برای نمایش یافت نشد
                     </span>    
-                    <img src={no_content} alt="salam" style={{marginLeft: '40%'}}/>
+                    <img src={no_content} alt="salam" style={{marginLeft: '23%', height:'30%', marginTop: '4%', width: '50%'}}/>
                 </div>}            display={{
                 grid: true,
               }}

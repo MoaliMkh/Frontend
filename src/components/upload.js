@@ -6,6 +6,7 @@ import { FileUpload } from "primereact/fileupload";
 import req from "../api/user_req";
 import { useState } from "react";
 import { useAlert } from "react-alert";
+import upload_page from '../upload_page.png';
 
 function Upload() {
   const [fileState, setFileState] = useState(null);
@@ -76,7 +77,8 @@ function Upload() {
         name="uploader"          />
         </div>
 
-      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 rounded-full w-auto text-base" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
+      <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 text-3xl rounded-lg w-auto" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 
+      <img src={upload_page} alt="salam" style={{marginLeft: 0, marginBottom: 0, height: '30%'}}/>
 
 
       </div>

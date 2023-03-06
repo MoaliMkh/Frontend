@@ -3,8 +3,9 @@ import card_img from "../card.jpg";
 import req from '../api/user_req'
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
-import no_content from '../no-content.png';
+import no_content from '../no_content.png';
 import download_req from '../api/download_req';
+
 
 
 
@@ -94,10 +95,10 @@ const AttachmentList = (props) => {
             renderItem={renderAttachments}
             renderWhenEmpty={() => 
             <div style={{color: 'red', textAlign: 'center'}}>
-                <span>
+                <span class="rounded-lg bg-rose-700 text-white text-4xl" style={{ padding: '1%'}}>
                 پیوستی برای نمایش وجود ندارد
                 </span>    
-                <img src={no_content} alt="salam" style={{marginLeft: '40%'}}/>
+                <img src={no_content} alt="salam" style={{marginLeft: '23%', height:'30%', marginTop: '4%', width: '50%'}}/>
             </div>}
             display={{
                 grid: true,
