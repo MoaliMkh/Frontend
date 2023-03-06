@@ -54,7 +54,21 @@ function EditUser() {
     const user_id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
     const data = { "username": username, "new_password": newPassword, "phone_number": phoneNum, "password": password }
+
+    if (username === ""){
+      delete data.username
+    }
+    if (newPassword === ""){
+      delete data.new_password
+    }
+    if (phoneNum === ""){
+      delete data.phone_number
+    }
+    if(phoneNum !== ""){
+      localStorage.setItem("phone_number", phoneNum)
+    }
     try {
+      console.log(data)
       await req.patch(`/profile/${user_id}/`, data, {headers: {"Authorization": `Token ${token}`}} )
       alert.show('تغییرات با موفقیت اعمال شد', {type: 'success'})
       navigate('/')
