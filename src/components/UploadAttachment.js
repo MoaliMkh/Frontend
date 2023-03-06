@@ -34,7 +34,14 @@ function UploadAttachment() {
           alert.show('پیوست با محتوا هم‌خوانی ندارد', {type: 'error'})
         }
       }
-    }
+      else if(content_extension === "mp4"){
+        await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+        alert.show('پیوست با موفقیت بارگذاری شد', {type: 'success'})
+        navigate('/eachlibrary')
+      }
+
+      }
+    
     catch(e){
       alert.show('بارگذاری پیوست، با خطا مواجه شد', {type: 'error'})
     }
@@ -78,7 +85,7 @@ function UploadAttachment() {
         </p>
         <input type="text" class="text-right bg-gray-50 border center-self border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-1000 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500 mb-4" style={{width: '50%', marginLeft: '27%',marginTop: '5%'}}
               placeholder="نام پیوست" required onChange={(event) => {setName(event.target.value)}}></input>
-        <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
+        <div class="card flex justify-content-center w-fit" style={{marginLeft: '22%', alignContent: 'center'}}>
 
         <FileUpload 
         customUpload={true}

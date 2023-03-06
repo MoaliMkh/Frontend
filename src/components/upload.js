@@ -117,7 +117,7 @@ function Upload() {
         </p>
         <br />
 
-        <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
+        <div class="card flex justify-content-center" style={{marginLeft: '22%'}}>
 
         {renderUploadFile()}
         </div>
