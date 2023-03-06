@@ -15,6 +15,7 @@ function Signup() {
 
   const [passwordEquality, setPasswordEquality] = useState(true);
   const [uniqueness, setUniqueness] = useState(true);
+  const [passwordBigEnough, setPasswordBigEnough] = useState(true)
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -40,6 +41,10 @@ function Signup() {
   const passwordEqualityChecker = () => {
     if (password === secondPassword) {
       setPasswordEquality(true)
+      if(password.length >= 8){
+        setPasswordBigEnough(true)
+      }
+      else{setPasswordBigEnough(false)}
       console.log(passwordEquality)
       
     } else {
@@ -61,7 +66,7 @@ function Signup() {
         localStorage.setItem("username", username);
         localStorage.setItem("phone_number", "")
         setUniqueness(true)
-        alert.show('حساب کاربری شما با موفقیت ساخته شد' , {type: 'success'})
+        alert.show('حساب کاربری با موفقیت ساخته شد' , {type: 'success'})
         navigate('/signupsuccess')
       } catch (e) {
         setUniqueness(false)
@@ -140,6 +145,7 @@ function Signup() {
 
           {!passwordEquality ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">رمزهای عبور، با هم مغایرت دارند</p> : null}
           {!uniqueness ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">نام کاربری وارد شده، قبلا در سیستم ثبت شده است</p> : null}
+          {!passwordBigEnough ? <p class="margin right-align medium-small text-sm text-center text-red-700 ml-0.5">طول رمز عبور باید حداقل ۸ کاراکتر باشد</p> : null}
 
 
           <div class="row">

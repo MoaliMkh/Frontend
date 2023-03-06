@@ -25,7 +25,7 @@ function UserPanel() {
     marginRight: "auto",
     marginTop: "5%",
     borderRadius: 10,
-    height: "88%",
+    height: "84%",
     display: 'flex',
     flexDirection: 'column'
     };
