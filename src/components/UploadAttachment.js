@@ -23,11 +23,21 @@ function UploadAttachment() {
     const content_id = localStorage.getItem("content_id")
     data.append('content', fileState)
     // console.log(fileState.name.split(' ').join('_'))
-    data.append('name', fileState.name.split(' ').join('_'))
+    data.append('name', fileState.name.split(' ').join('_'));
+    const content_extension = localStorage.getItem("each_content_extension")
     try{
-      await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-      alert.show('پیوست با موفقیت بارگذاری شد', {type: 'success'})
-      navigate('/eachlibrary')
+      if (content_extension === "png" || content_extension === "jpg" || content_extension === "pdf" || content_extension === "jpeg" || content_extension === "mp3"){
+        if (!fileState.name.endsWith('srt')){
+          await req.post(`/${user_id}/file/${content_id}/attachment/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+          alert.show('پیوست با موفقیت بارگذاری شد', {type: 'success'})
+          navigate('/eachlibrary')
+        }
+        else{
+          alert.show('پیوست با محتوا هم‌خوانی ندارد', {type: 'error'})
+        }
+      }
+      
+
     }
     catch(e){
       alert.show('بارگذاری پیوست، با خطا مواجه شد', {type: 'error'})

@@ -34,9 +34,11 @@ const ContentList = (props) => {
         })
     }
 
-    const fetchEachContent = async (index) => {
+    const fetchEachContent = async (index, name) => {
         const token = localStorage.getItem("token");
         const user_id = localStorage.getItem("user_id");
+        console.log(name.split('.')[(name.split('.').length) - 1])
+        localStorage.setItem("each_content_extension", name.split('.')[(name.split('.').length) - 1]);
         localStorage.setItem("content_id", index)
 
         try {
@@ -79,7 +81,7 @@ const ContentList = (props) => {
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
         <div class=" w-fit rounded overflow-hidden shadow-lg"  >
-            <div onClick={() => {fetchEachContent(idx)}} class="bg-sky-700">
+            <div onClick={() => {fetchEachContent(idx, library.name)}} class="bg-sky-700">
                 <img
                     class="w-full"
                     src={card_img}

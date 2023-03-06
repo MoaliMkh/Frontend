@@ -45,7 +45,6 @@ function Signup() {
         setPasswordBigEnough(true)
       }
       else{setPasswordBigEnough(false)}
-      console.log(passwordEquality)
       
     } else {
       setPasswordEquality(false)
@@ -56,6 +55,9 @@ function Signup() {
     e.preventDefault()
     const data = { username, password }
     if (passwordEquality){
+      if(passwordBigEnough){
+
+
       try {
         const res = await req.post('/register/', data)
         const {token} = res.data || {};
@@ -73,6 +75,7 @@ function Signup() {
         alert.show('خطا هنگام ساخت حساب' , {type: 'error'})
         console.log(e)
       }
+    }
     }
     else{
       alert("اطلاعات خود را به درستی وارد کنید")
