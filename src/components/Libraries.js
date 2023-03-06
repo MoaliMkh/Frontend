@@ -18,7 +18,7 @@ function Libraries() {
   };
 
   const transStyle = {
-    backgroundColor: "#595B60",
+    backgroundColor: "#262626",
     opacity: 0.94,
     width: "60%",
     marginLeft: "auto",

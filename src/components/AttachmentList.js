@@ -1,5 +1,5 @@
 import FlatList from 'flatlist-react';
-import card_img from "../card.jpg";
+import card_img from "../file.png";
 import req from '../api/user_req'
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
@@ -58,7 +58,7 @@ const AttachmentList = (props) => {
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
         <div class="w-fit rounded overflow-hidden shadow-lg"  >
-            <div>
+            <div class="bg-sky-700">
                 <img
                     class="w-full"
                     src={card_img}

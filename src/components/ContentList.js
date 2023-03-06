@@ -1,5 +1,5 @@
 import FlatList from 'flatlist-react';
-import card_img from "../card.jpg";
+import card_img from "../file.png";
 import req from '../api/user_req';
 import download_req from '../api/download_req';
 import { useNavigate } from 'react-router-dom';
@@ -79,7 +79,7 @@ const ContentList = (props) => {
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
         <div class=" w-fit rounded overflow-hidden shadow-lg"  >
-            <div onClick={() => {fetchEachContent(idx)}}>
+            <div onClick={() => {fetchEachContent(idx)}} class="bg-sky-700">
                 <img
                     class="w-full"
                     src={card_img}
