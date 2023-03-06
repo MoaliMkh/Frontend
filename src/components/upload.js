@@ -12,6 +12,44 @@ function Upload() {
   const [fileState, setFileState] = useState(null);
   const alert = useAlert();
   const navigate = useNavigate();
+  const library_type = localStorage.getItem("library_type");
+
+
+  const renderUploadFile = () => {
+    if (library_type === "Video") {
+      return         <FileUpload 
+      customUpload={true}
+      mode="advanced"
+      auto={true}
+      uploadHandler={onChangeHandler}
+      name="uploader"  
+      chooseLabel="فایل را انتخاب کنید"
+      accept="video/*"
+              />;
+    } else if (library_type === "Book"){
+      return        <FileUpload 
+      customUpload={true}
+      mode="advanced"
+      auto={true}
+      uploadHandler={onChangeHandler}
+      name="uploader"  
+      chooseLabel="فایل را انتخاب کنید"
+
+              />;
+    }
+    else{
+      return <FileUpload 
+      customUpload={true}
+      mode="advanced"
+      auto={true}
+      uploadHandler={onChangeHandler}
+      name="uploader"  
+      chooseLabel="فایل را انتخاب کنید"
+
+              />
+    }
+
+  }
 
 
   const onClickHandler = async () => {
@@ -20,13 +58,24 @@ function Upload() {
     const token = localStorage.getItem("token");
     const library_id = localStorage.getItem("library_id")
     data.append('content', fileState)
-    try{
-      await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
-      alert.show('فایل با موفقیت بارگذاری شد', {type: 'success'})
-      navigate('/Libraries')
+    if (library_type === "Book" && !fileState.name.endsWith('pdf')){
+      alert.show('محتوا با کتابخانه، هم‌خوانی ندارد', {type: "error"})
+
     }
-    catch(e){
-      alert.show('بارگذاری فایل، با خطا مواجه شد', {type: 'error'})
+    else if (library_type === "Audio" && !fileState.name.endsWith('mp3')){
+      alert.show('محتوا با کتابخانه، هم‌خوانی ندارد', {type: "error"})
+
+    }
+    else{
+      try{
+        await req.post(`/${user_id}/library/${library_id}/file/`, data, {headers: {"Authorization": `Token ${token}`, "Content-Type": "multipart/form-data"}});
+        alert.show('فایل با موفقیت بارگذاری شد', {type: 'success'})
+        navigate('/Libraries')
+      }
+      catch(e){
+        alert.show('بارگذاری فایل، با خطا مواجه شد', {type: 'error'})
+      }
+      
     }
 }
   const myStyle = {
@@ -69,12 +118,8 @@ function Upload() {
         <br />
 
         <div class="card flex justify-content-center" style={{marginLeft: '25%'}}>
-        <FileUpload 
-        customUpload={true}
-        mode="advanced"
-        auto={true}
-        uploadHandler={onChangeHandler}
-        name="uploader"          />
+
+        {renderUploadFile()}
         </div>
 
       <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white px-4 text-3xl rounded-lg w-auto" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 

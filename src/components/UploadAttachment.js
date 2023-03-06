@@ -15,14 +15,12 @@ function UploadAttachment() {
   const [name, setName] = useState("")
   const navigate = useNavigate();
 
-
   const onClickHandler = async () => {
     const data = new FormData()
     const user_id = localStorage.getItem("user_id");
     const token = localStorage.getItem("token");
     const content_id = localStorage.getItem("content_id")
     data.append('content', fileState)
-    // console.log(fileState.name.split(' ').join('_'))
     data.append('name', fileState.name.split(' ').join('_'));
     const content_extension = localStorage.getItem("each_content_extension")
     try{
@@ -36,8 +34,6 @@ function UploadAttachment() {
           alert.show('پیوست با محتوا هم‌خوانی ندارد', {type: 'error'})
         }
       }
-      
-
     }
     catch(e){
       alert.show('بارگذاری پیوست، با خطا مواجه شد', {type: 'error'})
@@ -89,7 +85,9 @@ function UploadAttachment() {
         mode="advanced"
         auto={true}
         uploadHandler={onChangeHandler}
-        name="uploader"          />
+        name="uploader"          
+        chooseLabel="فایل را انتخاب کنید"
+        multiple={false}/>
         </div>
 
       <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white text-3xl px-4 rounded-lg w-auto" style={{marginLeft: '42%', marginBottom: '5%'}} onClick={onClickHandler}>بارگذاری</button> 

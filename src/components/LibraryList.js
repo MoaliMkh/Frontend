@@ -16,10 +16,11 @@ const LibraryList = (props) => {
     const [libraryList, setLibraryList] = useState(props.libList)
     const [libListChanged, setLibListChanged] = useState(false)
 
-    const fetchEachLibrary = async (index) => {
+    const fetchEachLibrary = async (index, type) => {
         const token = localStorage.getItem("token");
         const user_id = localStorage.getItem("user_id");
         localStorage.setItem("library_id", index)
+        localStorage.setItem("library_type", type)
 
         try {
           const res = await req.get(`/${user_id}/library/${index}/file/`, {headers: {"Authorization": `Token ${token}`}})
@@ -56,7 +57,7 @@ const LibraryList = (props) => {
 
     <li style={{width: '80%', marginBottom: '15%'}} key={idx}  >
         <div class="max-w-sm rounded overflow-hidden shadow-lg"  >
-            <div onClick={() => {fetchEachLibrary(idx)}} class="bg-sky-700">
+            <div onClick={() => {fetchEachLibrary(idx, library.content_type)}} class="bg-sky-700">
                 <img
                     class="w-full"
                     src={card_img}
