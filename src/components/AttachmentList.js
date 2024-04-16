@@ -1,9 +1,9 @@
 import FlatList from 'flatlist-react';
-import card_img from "../file.png";
+import card_img from "../images/file.png";
 import req from '../api/user_req'
 import { useAlert } from 'react-alert';
 import { useState } from 'react';
-import no_content from '../no_content.png';
+import no_content from '../images/no_content.png';
 import download_req from '../api/download_req';
 
 

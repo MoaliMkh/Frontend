@@ -1,13 +1,11 @@
 import "./Library.css";
-import back_img from "../LibBackground.png";
-import contentino from "../contentino.png";
-import ContentList from "./ContentList";
-import { useNavigate } from "react-router-dom";
+import back_img from "../../images/LibBackground.png";
+import contentino from "../../images/contentino.png";
+import LibraryList from "./LibraryList";
 
-function EachLibrary() {
+function Libraries() {
+  const all_libs = JSON.parse(localStorage.getItem("all_libs"))
 
-  const navigate = useNavigate();
-  const each_lib = JSON.parse(localStorage.getItem("each_lib"))
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -34,6 +32,8 @@ function EachLibrary() {
 
   const inputFieldStyle = {
     width: "90%",
+    // paddingLeft: "13%",
+    // paddingRight: "10%",
     marginRight: '5%',
     marginLeft: '7%'
   };
@@ -45,17 +45,18 @@ function EachLibrary() {
           style={{ color: "white", textAlign: "center", marginBottom: 20 }}
           class="w-full"
         >
-        محتواهای کتابخانه    
+          کتابخانه‌ها
         </p>
 
-        <div style={inputFieldStyle}>
-        <ContentList libList={each_lib}/>
-        </div>
-        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center w-auto text-base" style={{marginLeft: '38%', marginBottom: '5%'}} onClick={() => {navigate('/upload')}}>
-          <span>بارگذاری محتوا در این کتابخانه</span>
-        </button>
+        <div class="col s2 z-depth-6 card-panel">
+          <div class="flex mb-6 ml-10 md:grid-cols-3">
+          </div>
 
-        
+          <div style={inputFieldStyle}>
+            <LibraryList libList={all_libs}/>
+          </div>
+
+        </div>
       </div>
 
       <div style={{ position: "absolute", bottom: 0, height: "10%" }}>
@@ -69,4 +70,4 @@ function EachLibrary() {
   );
 }
 
-export default EachLibrary;
+export default Libraries;

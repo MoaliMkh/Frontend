@@ -1,8 +1,8 @@
 // import './Login.css';
-import back_img from '../Background.png'
+import back_img from '../../images/Background.png'
 import { Link } from "react-router-dom";
-import successLogo from '../success.png'
-import contentino from '../contentino.png'
+import successLogo from '../../images/success.png'
+import contentino from '../../images/contentino.png'
 
 
 const SignupSuccess = () => {

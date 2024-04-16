@@ -6,7 +6,7 @@
 }
   
 .Background {
-      background-image: url("../LibBackground.png");
+      background-image: url("../../images/LibBackground.png");
       height:'100vh';
       background-size: 'cover';
       background-repeat: 'no-repeat';

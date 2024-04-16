@@ -1,11 +1,10 @@
 import "./CreateLib.css";
-import back_img from "../LibBackground.png";
-import contentino from "../contentino.png";
+import back_img from "../../images/LibBackground.png";
+import contentino from "../../images/contentino.png";
 import { useState } from "react";
-import req from '../api/user_req';
+import req from "../../api/user_req";
 import { useNavigate } from "react-router-dom";
-import { useAlert } from 'react-alert'
-
+import { useAlert } from "react-alert";
 
 function CreateLib() {
   const navigate = useNavigate();
@@ -14,18 +13,24 @@ function CreateLib() {
   const [libType, setLibType] = useState("Audio");
 
   const onSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const token = localStorage.getItem("token");
     const user_id = localStorage.getItem("user_id");
-    const data = {"name": `${libName}`, "content_type": `${libType}`, "user": `${user_id}`}
+    const data = {
+      name: `${libName}`,
+      content_type: `${libType}`,
+      user: `${user_id}`,
+    };
 
     try {
-      const res = await req.post(`/${user_id}/library/`, data, {headers: {"Authorization": `Token ${token}`}})
+      const res = await req.post(`/${user_id}/library/`, data, {
+        headers: { Authorization: `Token ${token}` },
+      });
       console.log(res.data);
-      alert.show('کتابخانه با موفقیت ساخته شد', {type: 'success'})
-      navigate('/library')
+      alert.show("کتابخانه با موفقیت ساخته شد", { type: "success" });
+      navigate("/library");
     } catch (e) {
-      console.log(e)
+      console.log(e);
     }
   };
 
@@ -55,7 +60,6 @@ function CreateLib() {
     paddingLeft: "15%",
     paddingRight: "10%",
   };
-
 
   return (
     <div style={myStyle}>

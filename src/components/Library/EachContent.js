@@ -1,11 +1,12 @@
 import "./Library.css";
-import back_img from "../LibBackground.png";
-import contentino from "../contentino.png";
-import LibraryList from "./LibraryList";
+import back_img from "../../images/LibBackground.png";
+import contentino from "../../images/contentino.png";
+import AttachmentList from "../AttachmentList";
+import { useNavigate } from "react-router-dom";
 
-function Libraries() {
-  const all_libs = JSON.parse(localStorage.getItem("all_libs"))
-
+function EachContent() {
+  const navigate = useNavigate();
+  const each_content = JSON.parse(localStorage.getItem("each_content"));
   const myStyle = {
     backgroundImage: `url(${back_img})`,
     height: "100vh",
@@ -14,7 +15,7 @@ function Libraries() {
     backgroundRepeat: "no-repeat",
     paddingTop: 40,
     alignItems: "center",
-    overflow: "auto"
+    overflow: "auto",
   };
 
   const transStyle = {
@@ -27,15 +28,12 @@ function Libraries() {
     borderRadius: 10,
     height: "88%",
     overflow: "auto",
-
   };
 
   const inputFieldStyle = {
     width: "90%",
-    // paddingLeft: "13%",
-    // paddingRight: "10%",
-    marginRight: '5%',
-    marginLeft: '7%'
+    marginRight: "5%",
+    marginLeft: "7%",
   };
 
   return (
@@ -45,18 +43,21 @@ function Libraries() {
           style={{ color: "white", textAlign: "center", marginBottom: 20 }}
           class="w-full"
         >
-          کتابخانه‌ها
+          پیوست‌های محتوا
         </p>
 
-        <div class="col s2 z-depth-6 card-panel">
-          <div class="flex mb-6 ml-10 md:grid-cols-3">
-          </div>
-
-          <div style={inputFieldStyle}>
-            <LibraryList libList={all_libs}/>
-          </div>
-
+        <div style={inputFieldStyle}>
+          <AttachmentList libList={each_content} />
         </div>
+        <button
+          class="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded inline-flex items-center w-auto text-base"
+          style={{ marginLeft: "37%", marginBottom: "5%" }}
+          onClick={() => {
+            navigate("/uploadattachment");
+          }}
+        >
+          <span>بارگذاری پیوست در این محتوا</span>
+        </button>
       </div>
 
       <div style={{ position: "absolute", bottom: 0, height: "10%" }}>
@@ -70,4 +71,4 @@ function Libraries() {
   );
 }
 
-export default Libraries;
+export default EachContent;

@@ -1,12 +1,12 @@
-import back_img from "../LibBackground.png";
-import contentino from "../contentino.png";
+import back_img from "../images/LibBackground.png";
+import contentino from "../images/contentino.png";
 import { useNavigate } from "react-router-dom";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import { FileUpload } from "primereact/fileupload";
 import req from "../api/user_req";
 import { useState } from "react";
 import { useAlert } from "react-alert";
-import upload_page from '../upload_page.png';
+import upload_page from '../images/upload_page.png';
 
 function Upload() {
   const [fileState, setFileState] = useState(null);

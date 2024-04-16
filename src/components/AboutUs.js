@@ -1,5 +1,5 @@
 // import './Login.css';
-import back_img from '../Background.png'
+import back_img from '../images/Background.png'
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {

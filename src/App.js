@@ -1,23 +1,21 @@
 import "./App.css";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./components/User/Login";
+import Signup from "./components/User/Signup";
 import HomePage from "./components/Home";
 import Layout from "./components/Layout";
-import SignupSuccess from "./components/SignupSuccess";
+import SignupSuccess from "./components/User/SignupSuccess";
 import AboutUs from "./components/AboutUs";
-import Library from "./components/Library";
-import CreateLib from "./components/CreateLib";
-import Libraries from "./components/Libraries";
+import Library from "./components/Library/Library";
+import CreateLib from "./components/Library/CreateLib";
+import Libraries from "./components/Library/Libraries";
 import Upload from "./components/Upload";
-import EditUser from './components/EditUser';
-import EachLibrary from "./components/EachLibrary";
+import EditUser from "./components/User/EditUser";
+import EachLibrary from "./components/Library/EachLibrary";
 import UploadAttachment from "./components/UploadAttachment";
-import EachContent from "./components/EachContent";
-import UserPanel from "./components/UserPanel"
+import EachContent from "./components/Library/EachContent";
+import UserPanel from "./components/User/UserPanel";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-
 
 function App() {
   return (
@@ -38,14 +36,7 @@ function App() {
           <Route path="eachcontent" element={<EachContent />} />
           <Route path="userpanel" element={<UserPanel />} />
 
-
           <Route path="uploadattachment" element={<UploadAttachment />} />
-
-          
-
-
-
-          
         </Route>
       </Routes>
     </BrowserRouter>

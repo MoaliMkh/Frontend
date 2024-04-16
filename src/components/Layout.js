@@ -1,10 +1,10 @@
 import { Outlet, Link, useNavigate } from "react-router-dom";
-import userIcon from "../user_icon.png";
-import settingIcon from "../setting_icon.png";
-import logoutIcon from "../logout_icon.png";
-import contentIcon from "../content_icon.png";
+import userIcon from "../images/user_icon.png";
+import settingIcon from "../images/setting_icon.png";
+import logoutIcon from "../images/logout_icon.png";
+import contentIcon from "../images/content_icon.png";
 import req from '../api/login_signup_req'
-import home from '../home.png'
+import home from '../images/home.png'
 import { useAlert } from "react-alert";
 
 const Layout = () => {

@@ -1,9 +1,9 @@
 // import back_img from '../userprofilebg.png'
 
-import back_img from '../profile_page_back.png'
-import profile_icon from '../profile_icon.png'
+import back_img from '../../images/profile_page_back.png'
+import profile_icon from '../../images/profile_icon.png'
 import { Link } from 'react-router-dom';
-import contentino from '../contentino.png'
+import contentino from '../../images/contentino.png'
 
 function UserPanel() {
   const myStyle= {
